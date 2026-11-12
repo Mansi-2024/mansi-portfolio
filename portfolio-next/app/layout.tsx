@@ -28,23 +28,49 @@ export const metadata: Metadata = {
   title: SITE_METADATA.title,
   description: SITE_METADATA.description,
   metadataBase: new URL(SITE_METADATA.url),
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
     title: SITE_METADATA.title,
     description: SITE_METADATA.description,
     url: SITE_METADATA.url,
     siteName: 'Mansi Konde Portfolio',
+    locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: SITE_METADATA.title,
     description: SITE_METADATA.description,
+    creator: SITE_METADATA.twitterHandle,
   },
 };
 
 export const viewport: Viewport = {
   themeColor: '#08080a',
   colorScheme: 'dark',
+};
+
+const personStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Mansi Konde',
+  jobTitle: 'Creative Engineer',
+  description: 'Creative Engineer exploring ideas, solving problems and building experiences through technology.',
+  url: SITE_METADATA.url,
+  sameAs: ['https://github.com/Mansi-2024'],
 };
 
 export default function RootLayout({
@@ -57,6 +83,12 @@ export default function RootLayout({
       lang="en"
       className={`dark ${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personStructuredData) }}
+        />
+      </head>
       <body className="bg-[#08080a] text-[#f4f4f7] font-sans antialiased selection:bg-[#00f0ff] selection:text-[#08080a]">
         {/* Accessible Skip Link */}
         <a

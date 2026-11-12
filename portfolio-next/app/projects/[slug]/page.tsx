@@ -32,9 +32,23 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     return { title: 'Project Not Found' };
   }
 
+  const title = `${project.title} — Mansi Konde Case Study`;
+  const description = project.summary;
+
   return {
-    title: `${project.title} — Mansi Konde Case Study`,
-    description: project.summary,
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      type: 'article',
+      url: `/projects/${slug}`,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
   };
 }
 
