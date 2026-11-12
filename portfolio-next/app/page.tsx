@@ -1,5 +1,6 @@
 import React from 'react';
 import { Hero } from '@/components/hero/Hero';
+import { IdentityCard } from '@/components/identity-card/IdentityCard';
 import { PageTransition } from '@/components/transitions/PageTransition';
 import { ArrowUpRight, Compass } from 'lucide-react';
 
@@ -9,7 +10,10 @@ export default function HomePage() {
       {/* 1. Cinematic Hero Section */}
       <Hero />
 
-      {/* 2. Transitional Section Fold (Scroll Destination for Verification) */}
+      {/* 2. Interactive 3D Hanging Identity Card & Lanyard */}
+      <IdentityCard />
+
+      {/* 3. Transitional Section Fold (Scroll Destination for Verification) */}
       <section
         id="next-preview"
         aria-label="Upcoming Section Transition"
@@ -20,17 +24,17 @@ export default function HomePage() {
             <div className="flex items-center gap-2 text-[#00f0ff]">
               <Compass className="w-4 h-4" />
               <span className="uppercase tracking-widest font-semibold">
-                Phase 2 Hero Verified
+                Phase 3 Identity Badge Verified
               </span>
             </div>
             <p className="text-sm font-sans text-[#a1a1aa] font-light max-w-md">
-              Cinematic hero architecture established. Ready for upcoming 3D identity badge and horizontal work gallery phases.
+              Interactive 3D identity badge established. Ready for upcoming horizontal work gallery and case study phases.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 text-xs font-mono">
             <div className="px-3 py-1.5 rounded border border-[#2a2a36] bg-[#08080a] text-[#f4f4f7]">
-              Lenis + GSAP ScrollTrigger Active
+              R3F + Three.js + GSAP ScrollTrigger
             </div>
             <a
               href="https://github.com/Mansi-2024"
