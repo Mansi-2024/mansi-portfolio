@@ -3,6 +3,7 @@ import { Hero } from '@/components/hero/Hero';
 import { IdentityCard } from '@/components/identity-card/IdentityCard';
 import { EditorialWorkIntro } from '@/components/projects/EditorialWorkIntro';
 import { HorizontalProjects } from '@/components/projects/HorizontalProjects';
+import { CapabilitiesSection } from '@/components/capabilities/CapabilitiesSection';
 import { PageTransition } from '@/components/transitions/PageTransition';
 import { ArrowUpRight, Compass } from 'lucide-react';
 
@@ -21,7 +22,10 @@ export default function HomePage() {
       {/* 4. Horizontal Pinned Selected Work Gallery (6 Projects) */}
       <HorizontalProjects />
 
-      {/* 5. Transitional Section Fold (Scroll Destination for Verification) */}
+      {/* 5. Capabilities, Engineering Approach & Technical Stack */}
+      <CapabilitiesSection />
+
+      {/* 6. Transitional Section Fold (Scroll Destination for Verification) */}
       <section
         id="next-preview"
         aria-label="Upcoming Section Transition"
@@ -32,17 +36,17 @@ export default function HomePage() {
             <div className="flex items-center gap-2 text-[#00f0ff]">
               <Compass className="w-4 h-4" />
               <span className="uppercase tracking-widest font-semibold">
-                Phase 4 Selected Work Verified
+                Phase 5 Capabilities Verified
               </span>
             </div>
             <p className="text-sm font-sans text-[#a1a1aa] font-light max-w-md">
-              Editorial transition and horizontal pinned gallery established for all six projects. Ready for upcoming capabilities and contact sections.
+              Capabilities, technical stack and engineering principles established. Ready for final contact and deployment phase.
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 text-xs font-mono">
             <div className="px-3 py-1.5 rounded border border-[#2a2a36] bg-[#08080a] text-[#f4f4f7]">
-              GSAP ScrollTrigger Pinned Scrub Active
+              Next.js 16 + React 19 + GSAP
             </div>
             <a
               href="https://github.com/Mansi-2024"
