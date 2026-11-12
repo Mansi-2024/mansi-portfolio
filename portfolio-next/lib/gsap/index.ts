@@ -16,6 +16,7 @@ export function registerGSAP() {
 // Auto-register on import if in browser
 if (typeof window !== 'undefined') {
   registerGSAP();
+  (window as unknown as { ScrollTrigger?: typeof ScrollTrigger }).ScrollTrigger = ScrollTrigger;
 }
 
 export { gsap, ScrollTrigger, useGSAP };
