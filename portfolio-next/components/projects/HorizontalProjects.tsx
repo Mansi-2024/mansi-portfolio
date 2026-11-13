@@ -13,14 +13,14 @@ interface HorizontalProjectsProps {
 }
 
 /**
- * HorizontalProjects Component — Cinematic Pinned Horizontal Gallery
+ * HorizontalProjects Component — Cinematic Gallery
  *
  * Implements:
  * - GSAP ScrollTrigger pinning and horizontal scrub on desktop & laptop
  * - Natural Lenis ticker synchronization with invalidateOnRefresh
  * - Touch-friendly horizontal overflow snap gallery for mobile & tablet (avoiding pin-trapping)
  * - Complete reduced-motion accessibility bypass
- * - 6 authentic, verified project panels
+ * - 6 authentic, verified project panels featuring authentic architectural diagrams
  */
 export function HorizontalProjects({ className = '' }: HorizontalProjectsProps) {
   const sectionRef = useRef<HTMLElement>(null);
@@ -138,24 +138,21 @@ export function HorizontalProjects({ className = '' }: HorizontalProjectsProps) 
       ref={sectionRef}
       id="work"
       aria-label="Selected Engineering Work Gallery"
-      className={`relative bg-[#09090d] border-t border-[#1c1c24] flex flex-col justify-between overflow-hidden ${
+      className={`relative bg-[#0B0B0C] border-t border-white/[0.08] flex flex-col justify-between overflow-hidden ${
         isMobile || prefersReducedMotion ? 'py-12' : 'min-h-screen'
       } ${className}`}
     >
-      {/* Background Architectural Grid Lines */}
-      <div className="absolute inset-0 pointer-events-none opacity-10 bg-[linear-gradient(to_right,#1c1c24_1px,transparent_1px),linear-gradient(to_bottom,#1c1c24_1px,transparent_1px)] bg-[size:48px_48px]" />
-
       {/* Top Gallery Header Bar */}
-      <div className="relative z-10 pt-6 px-6 sm:px-8 max-w-7xl mx-auto w-full flex items-center justify-between border-b border-[#1c1c24] pb-4">
-        <div className="font-mono text-xs text-[#a1a1aa] flex items-center gap-2">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#00f0ff] animate-pulse" />
-          <span className="uppercase tracking-widest font-semibold text-[#f4f4f7]">
+      <div className="relative z-10 pt-6 px-6 sm:px-8 max-w-7xl mx-auto w-full flex items-center justify-between border-b border-white/[0.06] pb-4">
+        <div className="font-mono text-xs text-[#A1A1AA] flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#38BDF8]" aria-hidden="true" />
+          <span className="uppercase tracking-widest font-semibold text-[#F4F4F5]">
             SELECTED WORK ARCHIVE
           </span>
-          <span className="text-[#71717a] hidden sm:inline">// 6 VERIFIED REPOSITORIES</span>
+          <span className="text-[#71717A] hidden sm:inline">// 6 VERIFIED REPOSITORIES</span>
         </div>
 
-        <div className="font-mono text-[11px] text-[#71717a]">
+        <div className="font-mono text-[11px] text-[#71717A]">
           <span>INDEX: 01 — 06</span>
         </div>
       </div>
@@ -190,7 +187,7 @@ export function HorizontalProjects({ className = '' }: HorizontalProjectsProps) 
       </div>
 
       {/* Bottom Progress & Navigation Controller */}
-      <div className="relative z-10 border-t border-[#1c1c24] bg-[#09090d]/90 backdrop-blur-md">
+      <div className="relative z-10 border-t border-white/[0.08] bg-[#0B0B0C]/90 backdrop-blur-md">
         <ProjectProgress
           currentIndex={currentIndex}
           total={total}

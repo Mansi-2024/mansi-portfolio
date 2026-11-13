@@ -224,13 +224,16 @@ export function Hero() {
       </div>
 
       {/* Bottom Row: Minimal Animated Scroll Indicator & Timezone Colophon */}
-      <div className="flex items-center justify-between pt-6 border-t border-[#1c1c24] font-mono text-xs text-[#71717a] z-10">
+      <div className="flex items-center justify-between pt-6 border-t border-white/[0.08] font-mono text-xs text-[#71717A] z-10">
         <HeroScrollIndicator innerRef={scrollIndicatorRef} />
 
         <div className="hidden sm:flex items-center gap-4 text-[11px]">
           <span>IST (UTC+5:30)</span>
-          <span>•</span>
-          <span className="text-[#00f0ff]">INQUIRY ACTIVE 2026</span>
+          <span className="text-white/20">•</span>
+          <span className="inline-flex items-center gap-1.5 text-[#F4F4F5]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#34D399]" aria-hidden="true" />
+            <span>AVAILABLE FOR BUILD 2026</span>
+          </span>
         </div>
       </div>
     </section>

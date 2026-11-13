@@ -4,17 +4,18 @@ import React, { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import { gsap } from '@/lib/gsap';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
-import { Compass, Sparkles } from 'lucide-react';
 
 interface EditorialWorkIntroProps {
   className?: string;
 }
 
 /**
- * EditorialWorkIntro Component — Visual Pause & Section Bridge
+ * EditorialWorkIntro Component — Editorial Redesign
  *
- * Provides a typographic, deliberate introduction between the 3D identity card
- * and the horizontal selected work gallery.
+ * Provides a typographic, deliberate introduction to the 6 authentic case studies:
+ * - High-contrast Newsreader serif headline
+ * - Generous whitespace and architectural hairline divider
+ * - Eliminates generic neon badges and decorative HUD icons
  */
 export function EditorialWorkIntro({ className = '' }: EditorialWorkIntroProps) {
   const introRef = useRef<HTMLDivElement>(null);
@@ -102,25 +103,21 @@ export function EditorialWorkIntro({ className = '' }: EditorialWorkIntroProps) 
   return (
     <section
       ref={introRef}
-      id="work-intro"
+      id="selected-work"
       aria-label="Selected Work Introduction"
-      className={`relative min-h-[48vh] sm:min-h-[55vh] flex flex-col justify-center border-t border-[#1c1c24] bg-[#07070a] px-6 sm:px-8 py-20 sm:py-28 overflow-hidden ${className}`}
+      className={`relative min-h-[42vh] sm:min-h-[50vh] flex flex-col justify-center border-t border-white/[0.08] bg-[#0B0B0C] px-6 sm:px-8 py-20 sm:py-28 overflow-hidden ${className}`}
     >
-      {/* Background Architectural Grid Lines */}
-      <div className="absolute inset-0 pointer-events-none opacity-15 bg-[linear-gradient(to_right,#1c1c24_1px,transparent_1px),linear-gradient(to_bottom,#1c1c24_1px,transparent_1px)] bg-[size:32px_32px]" />
-
-      <div className="relative max-w-7xl mx-auto w-full flex flex-col justify-between space-y-10 sm:space-y-14">
-        {/* Top Colophon Tag */}
-        <div className="flex items-center justify-between font-mono text-xs text-[#71717a]">
-          <div className="inline-flex items-center gap-2 text-[#00f0ff] uppercase tracking-widest px-3 py-1 rounded-full border border-[#2a2a36] bg-[#0e0e14]">
-            <Compass className="w-3.5 h-3.5" />
-            <span>03 // PORTFOLIO LINEUP</span>
+      <div className="relative max-w-7xl mx-auto w-full flex flex-col justify-between space-y-10 sm:space-y-12">
+        {/* Top Eyebrow Tag */}
+        <div className="flex items-center justify-between font-mono text-xs text-[#71717A]">
+          <div className="inline-flex items-center gap-2 text-[#A1A1AA] uppercase tracking-widest pb-1 border-b border-white/10">
+            <span>02 // ARCHITECTURAL CASE STUDIES</span>
           </div>
 
           <div className="hidden sm:flex items-center gap-3 text-[11px]">
-            <span>6 VERIFIED PROJECTS</span>
-            <span>•</span>
-            <span className="text-[#f4f4f7]">HORIZONTAL CINEMATIC SCRUB</span>
+            <span>6 AUTHENTIC PROJECTS</span>
+            <span className="text-white/20">•</span>
+            <span className="text-[#F4F4F5]">EDITORIAL MAGAZINE PRESENTATION</span>
           </div>
         </div>
 
@@ -129,23 +126,19 @@ export function EditorialWorkIntro({ className = '' }: EditorialWorkIntroProps) 
           <div className="overflow-hidden py-1">
             <h2
               ref={titleLineRef}
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-sans font-bold text-[#f4f4f7] tracking-tight will-change-transform"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-serif text-[#F4F4F5] tracking-tight leading-[1.05] will-change-transform font-normal"
             >
-              Selected{' '}
-              <span className="text-[#00f0ff] font-serif italic font-normal tracking-normal">
-                Work.
-              </span>
+              Selected Work.
             </h2>
           </div>
 
           <div ref={copyRef} className="max-w-2xl space-y-3 pt-2">
-            <p className="font-serif italic text-xl sm:text-2xl text-[#d1d1d9] leading-snug">
+            <p className="font-serif italic text-xl sm:text-2xl text-[#E4E4E7] leading-snug">
               &ldquo;I follow the question. Then I build the answer.&rdquo;
             </p>
-            <p className="font-sans text-sm sm:text-base text-[#a1a1aa] leading-relaxed font-light">
-              A collection of experiments, systems and experiences shaped by curiosity and engineering.
-              Each project addresses a specific technical friction—from deterministic verification to
-              hazardous environment simulations.
+            <p className="font-sans text-sm sm:text-base text-[#A1A1AA] leading-relaxed font-normal">
+              A curated collection of systems, experiments, and verifiable software architectures.
+              Each case study documents real problem discovery, structural decisions, and working implementations—without synthetic metrics or decorative filler.
             </p>
           </div>
         </div>
@@ -153,7 +146,7 @@ export function EditorialWorkIntro({ className = '' }: EditorialWorkIntroProps) 
         {/* Expanding Editorial Divider Rule */}
         <div
           ref={dividerRef}
-          className="w-full h-px bg-gradient-to-r from-[#00f0ff]/60 via-[#2a2a36] to-transparent origin-left"
+          className="w-full h-px bg-white/10 origin-left"
         />
       </div>
     </section>

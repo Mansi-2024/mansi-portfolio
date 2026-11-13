@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useRef } from 'react';
-import { ArrowUp, CornerDownRight } from 'lucide-react';
+import { ArrowUp } from 'lucide-react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
-import { gsap, ScrollTrigger } from '@/lib/gsap';
+import { gsap } from '@/lib/gsap';
 
 export function ClosingStatement() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -52,46 +52,29 @@ export function ClosingStatement() {
   return (
     <div
       ref={containerRef}
-      className="relative pt-24 pb-16 border-t border-[#1c1c24] mt-24"
+      className="relative pt-24 pb-16 border-t border-white/[0.08] mt-24"
     >
-      {/* Corner specimen crosshairs matching hero editorial framing */}
-      <div
-        aria-hidden="true"
-        className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 text-[#2a2a36] font-mono text-[10px] select-none pointer-events-none"
-      >
-        +
-      </div>
-      <div
-        aria-hidden="true"
-        className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 text-[#2a2a36] font-mono text-[10px] select-none pointer-events-none"
-      >
-        +
-      </div>
-
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-10">
         {/* Typographic Statement */}
         <div className="space-y-4 max-w-3xl">
-          <div className="flex items-center gap-2 font-mono text-xs text-[#71717a]">
-            <CornerDownRight className="w-3.5 h-3.5 text-[#00f0ff]" />
-            <span className="uppercase tracking-widest text-[#00f0ff] font-semibold">
+          <div className="flex items-center gap-2 font-mono text-xs text-[#71717A]">
+            <span className="uppercase tracking-widest text-[#A1A1AA]">
               Closing Statement
             </span>
-            <span>//</span>
+            <span className="text-white/20">//</span>
             <span>Folio Vol. 2026</span>
           </div>
 
           <h2
             ref={textRef}
-            className="text-4xl sm:text-6xl md:text-7xl font-sans font-bold tracking-tight text-[#f4f4f7] leading-[1.06]"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-[#F4F4F5] tracking-tight leading-[1.08] font-normal"
           >
-            Still curious.{' '}
-            <span className="text-[#00f0ff] font-serif italic font-normal block sm:inline">
-              Still building.
-            </span>
+            &ldquo;I follow the question. <br className="hidden sm:inline" />
+            Then I build the answer.&rdquo;
           </h2>
 
-          <p className="font-sans text-base sm:text-lg text-[#a1a1aa] font-light max-w-xl leading-relaxed pt-2">
-            &ldquo;I follow the question. Then I build the answer.&rdquo;
+          <p className="font-sans text-base sm:text-lg text-[#A1A1AA] font-normal max-w-xl leading-relaxed pt-2">
+            A creative engineer exploring ideas, solving problems and building experiences through technology.
           </p>
         </div>
 
@@ -100,13 +83,11 @@ export function ClosingStatement() {
           <button
             type="button"
             onClick={handleScrollToTop}
-            className="group inline-flex items-center gap-2.5 px-4 py-3 rounded-xl border border-[#2a2a36] bg-[#0d0e13] hover:bg-[#14151f] hover:border-[#00f0ff]/50 text-[#f4f4f7] text-xs font-mono transition-all shadow-lg hover:shadow-[#00f0ff]/5 focus-visible:ring-2 focus-visible:ring-[#00f0ff]"
-            aria-label="Scroll back to top of page"
+            className="group inline-flex items-center gap-2 px-4 py-2.5 rounded-full border border-white/10 hover:border-white/40 bg-white/[0.02] text-xs font-mono text-[#F4F4F5] hover:text-white transition-all focus:outline-none focus-visible:ring-1 focus-visible:ring-[#38BDF8]"
+            aria-label="Return to top of page"
           >
-            <span className="tracking-wider uppercase">Return to Beginning</span>
-            <div className="w-6 h-6 rounded-md bg-[#181924] border border-[#2a2a36] flex items-center justify-center text-[#00f0ff] group-hover:-translate-y-0.5 transition-transform">
-              <ArrowUp className="w-3.5 h-3.5" />
-            </div>
+            <span>Return to Top</span>
+            <ArrowUp className="w-3.5 h-3.5 text-[#38BDF8] group-hover:-translate-y-0.5 transition-transform" aria-hidden="true" />
           </button>
         </div>
       </div>

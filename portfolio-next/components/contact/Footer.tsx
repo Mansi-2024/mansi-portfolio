@@ -46,102 +46,90 @@ export function Footer() {
 
   return (
     <footer
-      aria-label="Site Footer"
-      className="w-full border-t border-[#1c1c24] bg-[#060608] py-14 px-6 sm:px-8 text-[#71717a] font-mono text-xs select-none"
+      aria-label="Publication Colophon and Site Footer"
+      className="w-full border-t border-white/[0.08] bg-[#09090B] py-16 px-6 sm:px-8 text-[#71717A] font-mono text-xs select-none"
     >
       <div className="max-w-7xl mx-auto space-y-12">
-        {/* Main Footer Row */}
-        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 pb-10 border-b border-[#1c1c24]/80">
-          {/* Col 1: Identity & Positioning */}
+        {/* 4-Column Publication Colophon Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b border-white/[0.06]">
+          {/* Column 1: Identity & Positioning */}
           <div className="space-y-2">
-            <div className="flex items-center gap-2">
-              <span className="font-sans font-bold text-lg text-[#f4f4f7] tracking-tight">
-                {profileData.name}
-              </span>
-              <span className="text-[#00f0ff] font-mono text-xs">// {profileData.role}</span>
+            <div className="font-sans font-semibold text-base text-[#F4F4F5] tracking-tight">
+              {profileData.name}
             </div>
-            <p className="font-sans text-xs text-[#a1a1aa] max-w-sm font-light leading-relaxed">
+            <div className="text-[#A1A1AA] text-xs">
+              {profileData.role}
+            </div>
+            <p className="font-serif italic text-xs text-[#71717A] pt-1">
               &ldquo;{profileData.tagline}&rdquo;
             </p>
-            <div className="text-[11px] text-[#71717a] pt-1">
-              {profileData.edition}
-            </div>
           </div>
 
-          {/* Col 2: Navigation & Social Links */}
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-10">
-            {/* Quick Navigation */}
-            <nav aria-label="Footer Navigation" className="flex items-center gap-5 text-[11px]">
-              <a
-                href="#hero"
-                className="hover:text-[#00f0ff] transition-colors focus-visible:ring-1 focus-visible:ring-[#00f0ff] rounded px-1"
-              >
-                Top
-              </a>
-              <a
-                href="#about"
-                className="hover:text-[#00f0ff] transition-colors focus-visible:ring-1 focus-visible:ring-[#00f0ff] rounded px-1"
-              >
-                About
-              </a>
-              <a
-                href="#work"
-                className="hover:text-[#00f0ff] transition-colors focus-visible:ring-1 focus-visible:ring-[#00f0ff] rounded px-1"
-              >
-                Work
-              </a>
-              <a
-                href="#capabilities"
-                className="hover:text-[#00f0ff] transition-colors focus-visible:ring-1 focus-visible:ring-[#00f0ff] rounded px-1"
-              >
-                Capabilities
-              </a>
-              <a
-                href="#contact"
-                className="hover:text-[#00f0ff] transition-colors focus-visible:ring-1 focus-visible:ring-[#00f0ff] rounded px-1"
-              >
-                Contact
-              </a>
-            </nav>
+          {/* Column 2: Typography System */}
+          <div className="space-y-1.5 text-[11px]">
+            <span className="text-[#A1A1AA] uppercase tracking-wider block font-semibold text-[10px]">
+              Typography System
+            </span>
+            <div className="text-[#F4F4F5]">Newsreader (Display Serif)</div>
+            <div>Inter (Interface Sans)</div>
+            <div>JetBrains Mono (Code &amp; Data)</div>
+          </div>
 
-            {/* Verified GitHub Link */}
-            <a
-              href={githubLink?.url || 'https://github.com/Mansi-2024'}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-[#2a2a36] bg-[#0d0e13] hover:border-[#00f0ff]/50 text-[#f4f4f7] hover:text-[#00f0ff] text-[11px] transition-colors focus-visible:ring-2 focus-visible:ring-[#00f0ff]"
-              aria-label="Mansi Konde GitHub Profile (opens in new tab)"
-            >
-              <GithubIcon className="w-3.5 h-3.5" />
-              <span>GitHub</span>
-              <ArrowUpRight className="w-3 h-3 text-[#71717a]" />
-            </a>
+          {/* Column 3: Engineering Stack */}
+          <div className="space-y-1.5 text-[11px]">
+            <span className="text-[#A1A1AA] uppercase tracking-wider block font-semibold text-[10px]">
+              Technology &amp; Engine
+            </span>
+            <div className="text-[#F4F4F5]">Next.js 16 (App Router) + React 19</div>
+            <div>Tailwind CSS 4 + GSAP ScrollTrigger</div>
+            <div>Three.js + React Three Fiber</div>
+          </div>
 
-            {/* Back to Top Button */}
-            <button
-              type="button"
-              onClick={handleScrollToTop}
-              className="group inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-[#2a2a36] bg-[#0d0e13] hover:border-[#00f0ff]/50 text-[#f4f4f7] text-[11px] transition-colors focus-visible:ring-2 focus-visible:ring-[#00f0ff]"
-              aria-label="Back to top of page"
-            >
-              <span>Back to Top</span>
-              <ArrowUp className="w-3 h-3 text-[#00f0ff] group-hover:-translate-y-0.5 transition-transform" />
-            </button>
+          {/* Column 4: Location & Verification */}
+          <div className="space-y-1.5 text-[11px]">
+            <span className="text-[#A1A1AA] uppercase tracking-wider block font-semibold text-[10px]">
+              Location &amp; Provenance
+            </span>
+            <div className="text-[#F4F4F5]">Mumbai, India (UTC +5:30)</div>
+            <div>
+              <a
+                href={githubLink?.url || 'https://github.com/Mansi-2024'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#F4F4F5] transition-colors inline-flex items-center gap-1"
+              >
+                <span>github.com/Mansi-2024</span>
+                <ArrowUpRight className="w-3 h-3 text-[#71717A]" />
+              </a>
+            </div>
+            <div className="text-[#34D399]">Available for Build 2026</div>
           </div>
         </div>
 
-        {/* Bottom Colophon & Copyright */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[11px] text-[#71717a]">
-          <div className="flex items-center gap-2">
+        {/* Bottom Colophon Row */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[11px]">
+          <div>
             <span>© {currentYear} Mansi Konde. All rights reserved.</span>
-            <span>•</span>
-            <span className="text-[#a1a1aa]">Designed and built with curiosity.</span>
           </div>
 
-          <div className="flex items-center gap-3 text-[10px] text-[#52525b]">
-            <span>Next.js 16 + React 19 + GSAP</span>
-            <span>•</span>
-            <span>Tailwind CSS 4</span>
+          <div className="flex items-center gap-4">
+            <nav aria-label="Footer Nav" className="flex items-center gap-4 text-[#A1A1AA]">
+              <a href="#hero" className="hover:text-[#F4F4F5] transition-colors">Hero</a>
+              <a href="#about" className="hover:text-[#F4F4F5] transition-colors">About</a>
+              <a href="#selected-work" className="hover:text-[#F4F4F5] transition-colors">Work</a>
+              <a href="#capabilities" className="hover:text-[#F4F4F5] transition-colors">Capabilities</a>
+              <a href="#contact" className="hover:text-[#F4F4F5] transition-colors">Contact</a>
+            </nav>
+
+            <button
+              type="button"
+              onClick={handleScrollToTop}
+              className="inline-flex items-center gap-1.5 hover:text-[#F4F4F5] transition-colors pl-4 border-l border-white/10"
+              aria-label="Back to top"
+            >
+              <span>Top</span>
+              <ArrowUp className="w-3 h-3 text-[#38BDF8]" />
+            </button>
           </div>
         </div>
       </div>

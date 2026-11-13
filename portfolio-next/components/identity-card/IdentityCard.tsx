@@ -6,7 +6,7 @@ import { useGSAP } from '@gsap/react';
 import { gsap, ScrollTrigger } from '@/lib/gsap';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { IdentityCardFallback } from './IdentityCardFallback';
-import { ShieldCheck, Move, Sparkles, Terminal, ArrowUpRight } from 'lucide-react';
+import { Move, ArrowUpRight, FileText } from 'lucide-react';
 import { profileData } from '@/data/profile';
 
 // Dynamically import 3D Canvas Scene with SSR disabled to prevent WebGL server-side errors
@@ -19,14 +19,13 @@ const IdentityCardScene = dynamic(
 );
 
 /**
- * IdentityCard Component — Interactive 3D Hanging Identity Card Section
+ * IdentityCard Component — Editorial Redesign
  *
- * Implements:
- * - GSAP ScrollTrigger coordinated entrance: Drops down from top of viewport as user enters the section
- * - Interactive 3D canvas with spring & pendulum physics
- * - Subtle ambient idle sway & mouse parallax
- * - Touch-friendly drag on mobile devices
- * - Graceful fallback for SSR and devices with reduced-motion preferences
+ * Serves as both the About section and the Interactive 3D Credential Stage:
+ * - Suspended 3D card drops and tilts with spring physics
+ * - Editorial perspective detailing Mansi's engineering philosophy
+ * - 3 Core Architectural Tenets grounded in real systems practice
+ * - Verified links to GitHub and Resume
  */
 export function IdentityCard() {
   const containerRef = useRef<HTMLElement>(null);
@@ -97,13 +96,10 @@ export function IdentityCard() {
   return (
     <section
       ref={containerRef}
-      id="identity"
-      aria-label="3D Identity Card Specimen"
-      className="relative min-h-[85vh] sm:min-h-screen border-t border-[#1c1c24] bg-[#09090d] py-16 sm:py-24 px-6 sm:px-8 overflow-hidden"
+      id="about"
+      aria-label="About Mansi Konde and 3D Identity Credential"
+      className="relative min-h-[85vh] sm:min-h-screen border-t border-white/[0.08] bg-[#0E0E10] py-16 sm:py-24 px-6 sm:px-8 overflow-hidden"
     >
-      {/* Background Architectural Grid Lines */}
-      <div className="absolute inset-0 pointer-events-none opacity-20 bg-[linear-gradient(to_right,#1c1c24_1px,transparent_1px),linear-gradient(to_bottom,#1c1c24_1px,transparent_1px)] bg-[size:48px_48px]" />
-
       <div className="relative max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
         {/* Left Column: 3D Stage (Suspended Lanyard & Identity Badge) */}
         <div
@@ -122,60 +118,60 @@ export function IdentityCard() {
 
           {/* Interactive Cue Badge */}
           <div className="absolute bottom-2 left-1/2 -translate-x-1/2 pointer-events-none">
-            <div className="inline-flex items-center gap-2 font-mono text-[10px] sm:text-xs text-[#a1a1aa] px-3.5 py-1.5 rounded-full border border-[#2a2a36] bg-[#0c0c12]/90 backdrop-blur-md shadow-lg">
-              <Move className="w-3.5 h-3.5 text-[#00f0ff] animate-pulse" />
-              <span>DRAG TO INSPECT // 3D HARMONIC SUSPENSION</span>
+            <div className="inline-flex items-center gap-2 font-mono text-[10px] sm:text-xs text-[#A1A1AA] px-3.5 py-1.5 rounded-full border border-white/10 bg-[#121214]/90 backdrop-blur-md shadow-lg">
+              <Move className="w-3.5 h-3.5 text-[#38BDF8]" aria-hidden="true" />
+              <span>TACTILE 3D CREDENTIAL // DRAG OR TILT</span>
             </div>
           </div>
         </div>
 
-        {/* Right Column: Editorial Credentials & Engineering Colophon */}
+        {/* Right Column: Editorial Perspective & Core Values */}
         <div ref={infoColRef} className="w-full lg:w-5/12 flex flex-col justify-center space-y-6">
-          {/* Section Colophon Tag */}
-          <div className="fade-in-item inline-flex items-center gap-2 self-start font-mono text-xs text-[#00f0ff] uppercase tracking-widest px-3 py-1 rounded-full border border-[#2a2a36] bg-[#0e0e14]">
-            <ShieldCheck className="w-3.5 h-3.5" />
-            <span>02 // IDENTITY SPECIMEN</span>
+          {/* Eyebrow */}
+          <div className="fade-in-item inline-flex items-center gap-2 self-start font-mono text-xs text-[#A1A1AA] uppercase tracking-widest pb-1 border-b border-white/10">
+            <span>01 // PERSPECTIVE & BACKGROUND</span>
           </div>
 
-          {/* Main Section Heading */}
-          <div className="fade-in-item space-y-2">
-            <h2 className="font-sans font-bold text-3xl sm:text-4xl text-[#f4f4f7] tracking-tight leading-tight">
-              Physical Artifact, <br />
-              <span className="text-[#00f0ff] font-serif italic font-normal">
-                Digital Precision.
-              </span>
+          {/* Editorial Headline */}
+          <div className="fade-in-item space-y-3">
+            <h2 className="font-serif text-3xl sm:text-4xl text-[#F4F4F5] tracking-tight leading-snug font-normal">
+              &ldquo;Engineering is not merely the assembly of components; it is the pursuit of truth through working software.&rdquo;
             </h2>
-            <p className="font-sans text-base text-[#a1a1aa] leading-relaxed font-light">
-              An interactive 3D identity badge suspended from a realistic lanyard. Simulated with
-              React Three Fiber, custom damped harmonic oscillator mathematics, and procedural canvas
-              textures—zero bulky WASM physics dependencies.
+            <p className="font-sans text-base text-[#A1A1AA] leading-relaxed font-normal">
+              Mansi Konde is a creative engineer and technologist based in Mumbai, operating at the convergence of systems architecture, spatial computing, and deterministic verification.
             </p>
           </div>
 
-          {/* Technical Specifications Specimen Block */}
-          <div className="fade-in-item rounded-xl border border-[#2a2a36] bg-[#0e0e14] p-5 space-y-3 font-mono text-xs text-[#71717a]">
-            <div className="flex items-center justify-between pb-2 border-b border-[#1c1c24]">
-              <span className="text-[#f4f4f7] font-semibold">SPECIMEN SPECIFICATION</span>
-              <span className="text-[#00f0ff]">ACTIVE 2026</span>
+          {/* 3 Core Architectural Tenets */}
+          <div className="fade-in-item space-y-3 pt-2">
+            <div className="p-3.5 rounded-lg border border-white/[0.07] bg-[#121214]">
+              <div className="flex items-center gap-2 font-mono text-xs text-[#38BDF8]">
+                <span>[01]</span>
+                <span className="font-medium text-[#F4F4F5]">Determinism Over Heuristics</span>
+              </div>
+              <p className="font-sans text-xs sm:text-sm text-[#A1A1AA] mt-1 pl-6 leading-relaxed">
+                Prioritizing strict state machines and authoritative registry cross-checks over unverified AI probabilistic guessing.
+              </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 text-[11px]">
-              <div>
-                <span className="block text-[#52525b]">HOLDER:</span>
-                <span className="text-[#f4f4f7] font-sans font-medium">{profileData.name}</span>
+            <div className="p-3.5 rounded-lg border border-white/[0.07] bg-[#121214]">
+              <div className="flex items-center gap-2 font-mono text-xs text-[#38BDF8]">
+                <span>[02]</span>
+                <span className="font-medium text-[#F4F4F5]">Tactile Human-Interface Craft</span>
               </div>
-              <div>
-                <span className="block text-[#52525b]">ROLE:</span>
-                <span className="text-[#00f0ff] font-semibold">{profileData.role}</span>
+              <p className="font-sans text-xs sm:text-sm text-[#A1A1AA] mt-1 pl-6 leading-relaxed">
+                Designing interfaces with physical weight, harmonic spring damping, and intuitive spatial interaction standards.
+              </p>
+            </div>
+
+            <div className="p-3.5 rounded-lg border border-white/[0.07] bg-[#121214]">
+              <div className="flex items-center gap-2 font-mono text-xs text-[#38BDF8]">
+                <span>[03]</span>
+                <span className="font-medium text-[#F4F4F5]">Evidence-Based Verification</span>
               </div>
-              <div>
-                <span className="block text-[#52525b]">PROPORTIONS:</span>
-                <span className="text-[#a1a1aa]">2.4 × 3.6 × 0.04 (Ratio 1:1.5)</span>
-              </div>
-              <div>
-                <span className="block text-[#52525b]">SIMULATION:</span>
-                <span className="text-[#a1a1aa]">Damped Spring / Pendulum</span>
-              </div>
+              <p className="font-sans text-xs sm:text-sm text-[#A1A1AA] mt-1 pl-6 leading-relaxed">
+                Cryptographic receipt protocols (RFC 8785), AST code parsing, and isolated automated test runners.
+              </p>
             </div>
           </div>
 
@@ -185,17 +181,21 @@ export function IdentityCard() {
               href="https://github.com/Mansi-2024"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg border border-[#2a2a36] bg-[#14141e] hover:bg-[#1a1a28] hover:border-[#00f0ff]/50 font-mono text-xs text-[#f4f4f7] transition-all group"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 hover:border-white/50 bg-white/[0.03] font-mono text-xs text-[#F4F4F5] hover:text-white transition-all group"
             >
-              <Terminal className="w-3.5 h-3.5 text-[#00f0ff]" />
               <span>Verify on GitHub</span>
-              <ArrowUpRight className="w-3.5 h-3.5 text-[#71717a] group-hover:text-[#00f0ff] transition-colors" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#71717A] group-hover:text-white transition-colors" />
             </a>
 
-            <div className="flex items-center gap-2 text-xs font-mono text-[#71717a]">
-              <Sparkles className="w-3.5 h-3.5 text-[#00f0ff]" />
-              <span>60–120 FPS Native RAF</span>
-            </div>
+            <a
+              href="/mansi-konde-resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 hover:border-white/30 bg-transparent font-mono text-xs text-[#A1A1AA] hover:text-[#F4F4F5] transition-all"
+            >
+              <FileText className="w-3.5 h-3.5 text-[#71717A]" />
+              <span>Curated Resume</span>
+            </a>
           </div>
         </div>
       </div>

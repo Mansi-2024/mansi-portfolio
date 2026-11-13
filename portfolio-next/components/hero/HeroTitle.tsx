@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { profileData } from '@/data/profile';
-import { Sparkles, Terminal } from 'lucide-react';
 
 interface HeroTitleProps {
   className?: string;
@@ -10,13 +9,13 @@ interface HeroTitleProps {
 }
 
 /**
- * HeroTitle Component
+ * HeroTitle Component — Editorial Redesign
  *
  * Implements:
- * - Fluid oversized typography with responsive clamp()
- * - Overflow-masked line wrappers for upward staggered word entrance
- * - Technical architectural metadata badges
- * - Accessible semantic hierarchy
+ * - High-contrast Newsreader serif headline with restrained line breaks
+ * - Overflow-masked line wrappers for upward staggered entrance
+ * - Publication-grade metadata eyebrow
+ * - Quiet action link to selected work
  */
 export function HeroTitle({ className = '', innerRef }: HeroTitleProps) {
   return (
@@ -24,62 +23,55 @@ export function HeroTitle({ className = '', innerRef }: HeroTitleProps) {
       ref={innerRef}
       className={`hero-title-wrapper flex flex-col justify-center space-y-6 ${className}`}
     >
-      {/* Top Identity & Status Pill */}
-      <div className="hero-status-pill inline-flex items-center gap-2 self-start font-mono text-xs text-[#00f0ff] uppercase tracking-widest px-3 py-1 rounded-full border border-[#2a2a36] bg-[#0e0e12]/80 backdrop-blur-sm shadow-sm">
-        <Sparkles className="w-3.5 h-3.5" />
-        <span className="font-semibold">{profileData.name}</span>
-        <span className="text-[#71717a]">//</span>
-        <span className="text-[#f4f4f7]">{profileData.role}</span>
+      {/* Top Editorial Eyebrow */}
+      <div className="hero-status-pill inline-flex items-center gap-2.5 self-start font-mono text-[11px] text-[#A1A1AA] uppercase tracking-[0.14em] pb-1 border-b border-white/10">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#34D399]" aria-hidden="true" />
+        <span className="text-[#F4F4F5] font-medium">{profileData.name}</span>
+        <span className="text-[#71717A]" aria-hidden="true">—</span>
+        <span>{profileData.role}</span>
+        <span className="text-[#71717A]" aria-hidden="true">—</span>
+        <span className="text-[#71717A]">Mumbai, IN</span>
       </div>
 
       {/* Main Oversized Tagline Headline (Masked for Staggered Entrance) */}
       <h1
-        className="hero-heading font-sans font-bold text-[#f4f4f7] tracking-tight leading-[0.98] select-none text-[clamp(2.25rem,6.5vw,5.5rem)]"
-        aria-label={`${profileData.taglinePart1} question. ${profileData.taglinePart2} answer.`}
+        className="hero-heading font-serif text-[#F4F4F5] tracking-tight leading-[1.05] select-none text-[clamp(2.5rem,5.5vw,4.75rem)] font-normal"
+        aria-label={profileData.tagline}
       >
         {/* Row 1: "I follow the question." */}
         <span className="block overflow-hidden py-1">
           <span className="hero-title-line inline-block will-change-transform">
-            <span>{profileData.taglinePart1}</span>{' '}
-            <span className="text-[#00f0ff] font-serif italic font-normal tracking-normal">
-              question.
-            </span>
+            {profileData.taglinePart1} question.
           </span>
         </span>
 
         {/* Row 2: "Then I build the answer." */}
         <span className="block overflow-hidden py-1">
-          <span className="hero-title-line inline-block will-change-transform">
-            <span>{profileData.taglinePart2}</span>{' '}
-            <span className="text-[#f4f4f7] underline decoration-[#00f0ff]/50 decoration-2 underline-offset-8">
-              answer.
-            </span>
+          <span className="hero-title-line inline-block will-change-transform text-[#E4E4E7]">
+            {profileData.taglinePart2} answer.
           </span>
         </span>
       </h1>
 
       {/* Supporting Editorial Paragraph */}
       <div className="hero-supporting-text max-w-xl">
-        <p className="font-sans text-base sm:text-lg text-[#a1a1aa] leading-relaxed font-light">
+        <p className="font-sans text-base sm:text-lg text-[#A1A1AA] leading-relaxed font-normal">
           {profileData.supportingIntro}
         </p>
       </div>
 
-      {/* Technical Metadata Badges */}
-      <div className="hero-meta-badges pt-2 flex flex-wrap items-center gap-2 font-mono text-[10px] sm:text-xs text-[#71717a]">
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded border border-[#2a2a36] bg-[#0c0c10] text-[#a1a1aa]">
-          <Terminal className="w-3 h-3 text-[#00f0ff]" />
-          <span>Next.js 16 (App Router)</span>
-        </div>
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded border border-[#2a2a36] bg-[#0c0c10] text-[#a1a1aa]">
-          <span>React 19</span>
-        </div>
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded border border-[#2a2a36] bg-[#0c0c10] text-[#a1a1aa]">
-          <span>GSAP + Lenis Ticker</span>
-        </div>
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded border border-[#2a2a36] bg-[#0c0c10] text-[#a1a1aa]">
-          <span>R3F Staged</span>
-        </div>
+      {/* Quiet Action Link */}
+      <div className="hero-action-row pt-2 flex items-center gap-6">
+        <a
+          href="#selected-work"
+          className="group inline-flex items-center gap-2 font-mono text-xs text-[#F4F4F5] uppercase tracking-wider py-1.5 border-b border-white/20 hover:border-white/80 transition-colors"
+        >
+          <span>Explore Selected Work</span>
+          <span className="text-[#38BDF8] group-hover:translate-y-0.5 transition-transform" aria-hidden="true">↓</span>
+        </a>
+        <span className="font-mono text-xs text-[#71717A]">
+          Vol. 2026 // Folio
+        </span>
       </div>
     </div>
   );

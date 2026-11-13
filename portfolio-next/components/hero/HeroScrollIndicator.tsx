@@ -9,14 +9,14 @@ interface HeroScrollIndicatorProps {
 }
 
 /**
- * HeroScrollIndicator Component
+ * HeroScrollIndicator Component — Editorial Redesign
  *
- * Minimal animated scroll cue that fades out naturally as the user begins scrolling.
+ * Minimal animated scroll cue with warm tones and quiet motion.
  */
 export function HeroScrollIndicator({ className = '', innerRef }: HeroScrollIndicatorProps) {
   const handleScrollClick = () => {
     if (typeof window !== 'undefined') {
-      const nextSection = document.getElementById('next-preview') || document.getElementById('work');
+      const nextSection = document.getElementById('about') || document.getElementById('selected-work');
       if (nextSection) {
         nextSection.scrollIntoView({ behavior: 'smooth' });
       } else {
@@ -36,17 +36,17 @@ export function HeroScrollIndicator({ className = '', innerRef }: HeroScrollIndi
           handleScrollClick();
         }
       }}
-      className={`hero-scroll-indicator group cursor-pointer flex flex-col items-center gap-2 select-none focus:outline-none focus-visible:ring-1 focus-visible:ring-[#00f0ff] rounded p-2 ${className}`}
+      className={`hero-scroll-indicator group cursor-pointer flex flex-col items-start gap-1.5 select-none focus:outline-none focus-visible:ring-1 focus-visible:ring-[#38BDF8] rounded py-1 ${className}`}
       aria-label="Scroll to explore portfolio sections"
     >
-      <div className="flex items-center gap-2 font-mono text-[10px] tracking-widest text-[#71717a] group-hover:text-[#00f0ff] transition-colors">
+      <div className="flex items-center gap-2 font-mono text-[10px] tracking-widest text-[#71717A] group-hover:text-[#F4F4F5] transition-colors">
         <span>SCROLL TO EXPLORE</span>
-        <ArrowDown className="w-3 h-3 text-[#00f0ff] animate-bounce" />
+        <ArrowDown className="w-3 h-3 text-[#A1A1AA] group-hover:text-[#F4F4F5] transition-colors" aria-hidden="true" />
       </div>
 
       {/* Slender Visual Track with Sliding Pulse Pill */}
-      <div className="relative w-[1px] h-8 bg-[#2a2a36] overflow-hidden rounded-full">
-        <div className="absolute top-0 left-0 w-full h-3 bg-[#00f0ff] animate-[slideDown_1.8s_cubic-bezier(0.16,1,0.3,1)_infinite]" />
+      <div className="relative w-12 h-[1px] bg-white/10 overflow-hidden">
+        <div className="absolute top-0 left-0 h-full w-4 bg-[#38BDF8]/80 animate-[slideRight_2.2s_cubic-bezier(0.16,1,0.3,1)_infinite]" />
       </div>
     </div>
   );

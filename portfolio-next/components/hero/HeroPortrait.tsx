@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import { User } from 'lucide-react';
 
 interface HeroPortraitProps {
   className?: string;
@@ -11,13 +10,13 @@ interface HeroPortraitProps {
 }
 
 /**
- * HeroPortrait Component
+ * HeroPortrait Component — Editorial Redesign
  *
- * Dedicated portrait specimen frame supporting:
- * - Real photograph loading from /public/assets/mansi-konde.jpg (or custom prop)
- * - Graceful fallback to architectural SVG specimen frame when asset is pending upload
- * - Controlled scale, opacity, entrance from below, and subtle parallax
- * - Responsive 3:4 aspect ratio across all device breakpoints
+ * Implements:
+ * - High-craft 3:4 studio portrait frame with warm monochrome tone
+ * - Whisper-quiet 1px architectural hairline border
+ * - Authentic architectural silhouette and film grain texture fallback
+ * - Zero spinning radar rings, zero cyan tick marks, zero sci-fi HUD badges
  */
 export function HeroPortrait({
   className = '',
@@ -32,78 +31,76 @@ export function HeroPortrait({
     <div
       ref={innerRef}
       className={`hero-portrait-container relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[360px] mx-auto select-none ${className}`}
-      aria-label="Portrait Specimen Frame"
+      aria-label="Studio Portrait Frame"
     >
       {/* Outer Editorial Frame Container */}
-      <div className="relative aspect-[3/4] w-full rounded-2xl border border-[#2a2a36] bg-[#0c0c10] overflow-hidden p-3.5 shadow-2xl transition-all duration-300">
-        {/* Fine Architectural Grid Texture */}
-        <div className="absolute inset-0 pointer-events-none opacity-25 bg-[linear-gradient(to_right,#1c1c24_1px,transparent_1px),linear-gradient(to_bottom,#1c1c24_1px,transparent_1px)] bg-[size:16px_16px]" />
+      <div className="relative aspect-[3/4] w-full rounded-xl border border-white/[0.08] bg-[#121214] overflow-hidden p-2.5 shadow-2xl transition-all duration-300">
+        {/* Subtle Film Grain Noise Texture */}
+        <div 
+          className="absolute inset-0 pointer-events-none opacity-[0.03] bg-repeat"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+            backgroundSize: '16px 16px',
+          }}
+          aria-hidden="true"
+        />
 
-        {/* Precision Corner Tick Marks */}
-        <div className="absolute top-2.5 left-2.5 w-3 h-3 border-t-2 border-l-2 border-[#00f0ff]/70" />
-        <div className="absolute top-2.5 right-2.5 w-3 h-3 border-t-2 border-r-2 border-[#00f0ff]/70" />
-        <div className="absolute bottom-2.5 left-2.5 w-3 h-3 border-b-2 border-l-2 border-[#00f0ff]/70" />
-        <div className="absolute bottom-2.5 right-2.5 w-3 h-3 border-b-2 border-r-2 border-[#00f0ff]/70" />
-
-        {/* Top Annotation Bar */}
-        <div className="relative z-10 flex items-center justify-between pb-2 mb-2 border-b border-[#1c1c24] font-mono text-[9px] sm:text-[10px] text-[#71717a]">
-          <div className="flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00f0ff] animate-pulse" />
-            <span className="text-[#f4f4f7] tracking-wider uppercase font-semibold">
-              SPECIMEN // MK-01
-            </span>
-          </div>
-          <span className="text-[#00f0ff] tracking-widest uppercase font-mono">
-            3:4 RATIO
+        {/* Top Minimal Colophon Bar */}
+        <div className="relative z-10 flex items-center justify-between pb-2 mb-2 border-b border-white/[0.06] font-mono text-[10px] text-[#A1A1AA]">
+          <span className="tracking-wider uppercase text-[#F4F4F5] font-medium">
+            Mansi Konde
+          </span>
+          <span className="tracking-widest uppercase text-[#71717A]">
+            Studio // 3:4
           </span>
         </div>
 
         {/* Inner Canvas Display Window */}
-        <div className="relative w-full h-[calc(100%-2.25rem)] rounded-xl border border-[#1c1c24] bg-[#08080a] overflow-hidden flex flex-col items-center justify-center p-6 text-center">
+        <div className="relative w-full h-[calc(100%-2rem)] rounded-lg border border-white/[0.05] bg-[#0E0E10] overflow-hidden flex flex-col items-center justify-center">
           {!imageFailed ? (
             <img
               src={imageSrc}
               alt={imageAlt}
               onLoad={() => setImageLoaded(true)}
               onError={() => setImageFailed(true)}
-              className={`w-full h-full object-cover rounded-lg transition-opacity duration-500 ${
+              className={`w-full h-full object-cover transition-opacity duration-700 ${
                 imageLoaded ? 'opacity-100' : 'opacity-0'
               }`}
             />
           ) : null}
 
-          {/* Neutral Architectural Specimen Fallback (Active when real photo is pending upload) */}
+          {/* Editorial Silhouette Specimen (Active when real photo is pending upload) */}
           {(imageFailed || !imageLoaded) && (
-            <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-0">
-              {/* Subtle Concentric Radar Rings & Crosshairs */}
-              <div className="relative w-24 h-24 mb-4 flex items-center justify-center">
-                <div className="absolute inset-0 rounded-full border border-[#2a2a36] animate-[spin_12s_linear_infinite]" />
-                <div className="absolute inset-2 rounded-full border border-dashed border-[#1c1c24]" />
-                <div className="absolute inset-4 rounded-full border border-[#2a2a36]" />
-                <div className="w-12 h-12 rounded-full bg-[#16161d] border border-[#00f0ff]/40 flex items-center justify-center text-[#00f0ff] shadow-inner">
-                  <User className="w-6 h-6 opacity-80" />
-                </div>
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center bg-gradient-to-b from-[#18181B] to-[#0E0E10]">
+              {/* Refined Architectural Silhouette */}
+              <div className="relative w-28 h-28 mb-4 rounded-full border border-white/10 bg-[#161618] flex items-center justify-center shadow-inner">
+                <svg
+                  className="w-14 h-14 text-[#A1A1AA]/60"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.25"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="8" r="4" />
+                  <path d="M6 21v-2a6 6 0 0 1 12 0v2" />
+                </svg>
               </div>
 
-              <div className="font-mono text-xs text-[#f4f4f7] font-medium tracking-wide">
-                Pending Owner Photograph
+              <div className="font-serif italic text-base text-[#F4F4F5]">
+                Creative Engineer
               </div>
-              <p className="font-mono text-[10px] text-[#71717a] mt-1 max-w-[200px] leading-relaxed">
-                Target path: <code className="text-[#00f0ff]">/public/assets/mansi-konde.jpg</code>
+              <p className="font-mono text-[11px] text-[#71717A] mt-1 max-w-[200px] leading-relaxed">
+                Studio Portrait Framing
               </p>
-              <div className="mt-3 inline-flex items-center gap-1 font-mono text-[9px] uppercase px-2 py-0.5 rounded border border-[#2a2a36] text-[#a1a1aa] bg-[#0e0e12]">
-                Editorial 3:4 Crop
+              <div className="mt-3 inline-flex items-center gap-1.5 font-mono text-[10px] uppercase px-2.5 py-0.5 rounded border border-white/10 text-[#A1A1AA] bg-white/[0.02]">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#34D399]" aria-hidden="true" />
+                <span>Mumbai, IN</span>
               </div>
             </div>
           )}
-
-          {/* Coordinate Crosshairs at Midpoints */}
-          <div className="absolute top-1/2 left-2 -translate-y-1/2 font-mono text-[8px] text-[#2a2a36]">
-            +
-          </div>
-          <div className="absolute top-1/2 right-2 -translate-y-1/2 font-mono text-[8px] text-[#2a2a36]">
-            +
-          </div>
         </div>
       </div>
     </div>
