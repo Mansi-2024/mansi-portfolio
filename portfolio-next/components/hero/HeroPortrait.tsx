@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import { profileData } from '@/data/profile';
 
 interface HeroPortraitProps {
   className?: string;
@@ -69,7 +70,7 @@ export function HeroPortrait({
                 Mansi Konde
               </div>
               <p className="font-mono text-[11px] text-[#71717A] mt-1">
-                Creative Engineer
+                {profileData.role}
               </p>
             </div>
           )}

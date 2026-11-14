@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef } from 'react';
+import { profileData } from '@/data/profile';
 import { ArrowUp } from 'lucide-react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { gsap } from '@/lib/gsap';
@@ -72,7 +73,7 @@ export function ClosingStatement() {
           </h2>
 
           <p className="font-sans text-base sm:text-lg text-[#A1A1AA] font-normal max-w-xl leading-relaxed pt-2">
-            A creative engineer exploring ideas, solving problems and building experiences through technology.
+            {profileData.supportingIntro}
           </p>
         </div>
 

@@ -148,7 +148,7 @@ export function createBadgeTextures(): {
 
   fCtx.fillStyle = '#D4D4D8';
   fCtx.font = '500 20px "Inter", sans-serif';
-  fCtx.fillText('Full-Stack Development • Interactive 3D • Software Tools', 76, 1055);
+  fCtx.fillText('Full-Stack Development • Applied AI • Software Systems', 76, 1055);
 
   // Divider
   fCtx.strokeStyle = 'rgba(255, 255, 255, 0.10)';
@@ -219,23 +219,23 @@ export function createBadgeTextures(): {
   // Engineering Practices Title
   bCtx.fillStyle = '#FFFFFF';
   bCtx.font = 'bold 30px "Newsreader", serif';
-  bCtx.fillText('Engineering Focus', 76, 260);
+  bCtx.fillText('Technical Focus', 76, 260);
 
   const practices = [
     {
       num: '01',
-      title: 'Full-Stack Foundations',
-      desc: 'Building responsive, structured web applications using React, Next.js, and TypeScript.',
+      title: 'Full-Stack Development',
+      desc: 'Building responsive web applications with React, Next.js, and TypeScript, connected to backend APIs.',
     },
     {
       num: '02',
-      title: 'Interactive & 3D Experiences',
-      desc: 'Exploring Three.js, WebGL shaders, and VR simulations to create tactile software interfaces.',
+      title: 'Applied AI Integration',
+      desc: 'Implementing practical machine learning solutions and intelligent features to solve real problems.',
     },
     {
       num: '03',
-      title: 'Learning Through Building',
-      desc: 'Deepening systems intuition by implementing prototypes, testing hypotheses, and open source.',
+      title: 'Software Craft & Systems',
+      desc: 'Writing clean, maintainable code, debugging systematically, and building practical software tools.',
     },
   ];
 

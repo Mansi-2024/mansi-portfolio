@@ -53,17 +53,17 @@ export interface ProfileData {
 export const profileData: ProfileData = {
   name: 'Mansi Konde',
   wordmark: 'MK.',
-  role: 'Creative Engineer',
-  positioning: 'Creative Engineer & Systems Architect',
+  role: 'Software Developer',
+  positioning: 'Software Developer | Full-Stack Development | Applied AI',
   tagline: 'Full-stack engineer building software that feels effortless',
   taglinePart1: 'Full-stack engineer',
   taglinePart2: 'building software that feels effortless',
-  bio: 'An engineering student and creative developer exploring ideas, building practical software, and learning through engineering.',
+  bio: 'An engineering student and software developer turning ideas into working applications across frontend and backend systems, applied AI, and practical software tools.',
   supportingIntro:
-    'A creative engineer exploring ideas, solving problems and building experiences through technology.',
+    'A software developer exploring ideas, solving problems, and building practical applications from frontend to backend.',
   location: 'India',
   timezone: '',
-  status: 'Open to software engineering roles and collaborative projects',
+  status: 'Open to software development internships and fresher opportunities',
   edition: '',
   email: {
     address: 'contact@mansikonde.dev',
