@@ -8,6 +8,7 @@ import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { IdentityCardFallback } from './IdentityCardFallback';
 import { Move, ArrowUpRight, FileText } from 'lucide-react';
 import { profileData } from '@/data/profile';
+import { EditorialCapabilityCards } from './EditorialCapabilityCards';
 
 // Dynamically import 3D Canvas Scene with SSR disabled to prevent WebGL server-side errors
 const IdentityCardScene = dynamic(
@@ -113,11 +114,11 @@ export function IdentityCard() {
         </div>
 
         {/* Two-Column Balanced Composition */}
-        <div className="flex flex-col lg:flex-row items-start justify-between gap-12 lg:gap-16">
+        <div className="flex flex-col lg:flex-row items-center lg:items-center justify-between gap-12 lg:gap-16">
           {/* Left Column: 3D Stage (Suspended Lanyard & Identity Badge) */}
           <div
             ref={cardStageRef}
-            className="w-full lg:w-5/12 h-[500px] sm:h-[580px] lg:h-[640px] relative flex items-center justify-center lg:sticky lg:top-24 shrink-0"
+            className="w-full lg:w-5/12 h-[460px] sm:h-[500px] lg:h-[520px] relative flex items-center justify-center shrink-0"
           >
             {isMounted ? (
               <IdentityCardScene
@@ -138,55 +139,16 @@ export function IdentityCard() {
             </div>
           </div>
 
-          {/* Right Column: Grounded Perspective & Core Focus */}
-          <div ref={infoColRef} className="w-full lg:w-7/12 flex flex-col justify-start space-y-8 lg:pl-4">
+          {/* Right Column: Grounded Perspective & Core Narrative */}
+          <div ref={infoColRef} className="w-full lg:w-7/12 flex flex-col justify-center space-y-8 lg:pl-4">
             {/* Core Narrative */}
-            <div className="fade-in-item space-y-4">
+            <div className="fade-in-item space-y-5">
               <p className="font-sans text-lg sm:text-xl text-[#F4F4F5] leading-relaxed font-normal">
                 I&apos;m an engineering student and software developer who enjoys turning ideas into working applications. I work across frontend and backend development, explore AI-powered solutions, and learn by building projects that solve practical problems.
               </p>
-              <p className="font-sans text-base text-[#A1A1AA] leading-relaxed font-normal">
+              <p className="font-sans text-base sm:text-lg text-[#A1A1AA] leading-relaxed font-normal">
                 From designing application architecture to implementing features, connecting APIs, and debugging issues, I enjoy understanding the entire development process rather than focusing on just one part of it.
               </p>
-            </div>
-
-            {/* Structured Editorial Focus Areas (No Cards / Boxes) */}
-            <div className="fade-in-item space-y-6 pt-2 border-t border-white/[0.08]">
-              <div className="space-y-2">
-                <h3 className="font-mono text-xs uppercase tracking-wider text-[#F4F4F5] font-semibold">
-                  Full-Stack Development &amp; Architecture
-                </h3>
-                <p className="font-sans text-sm sm:text-base text-[#A1A1AA] leading-relaxed">
-                  Building responsive, structured web applications using <strong className="text-[#E4E4E7] font-medium">React, Next.js, and TypeScript</strong>, connected to reliable backend services, databases, and RESTful APIs with an emphasis on maintainability and clarity.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="font-mono text-xs uppercase tracking-wider text-[#F4F4F5] font-semibold">
-                  Applied AI &amp; Practical Intelligence
-                </h3>
-                <p className="font-sans text-sm sm:text-base text-[#A1A1AA] leading-relaxed">
-                  Exploring practical implementations of machine learning in software—from computer vision pipelines for agricultural diagnostics to automated verification workflows that make applications more helpful and reliable.
-                </p>
-              </div>
-
-              <div className="space-y-2">
-                <h3 className="font-mono text-xs uppercase tracking-wider text-[#F4F4F5] font-semibold">
-                  Systems Thinking &amp; Engineering Craft
-                </h3>
-                <p className="font-sans text-sm sm:text-base text-[#A1A1AA] leading-relaxed">
-                  Focusing on writing clean, well-tested code, understanding how data flows across the stack, and debugging issues methodically. Also exploring interactive 3D in the browser as an additional technical curiosity.
-                </p>
-              </div>
-
-              <div className="space-y-2 pt-2">
-                <h3 className="font-mono text-xs uppercase tracking-wider text-[#38BDF8] font-semibold">
-                  Internship &amp; Placement Readiness
-                </h3>
-                <p className="font-sans text-sm sm:text-base text-[#D4D4D8] leading-relaxed">
-                  Actively preparing for <strong className="text-white font-medium">software developer internships and fresher opportunities</strong> where I can contribute to production systems, collaborate with engineering teams, and continue learning by shipping quality software.
-                </p>
-              </div>
             </div>
 
             {/* Action Links */}
@@ -212,6 +174,11 @@ export function IdentityCard() {
               </a>
             </div>
           </div>
+        </div>
+
+        {/* Lower Row: Horizontal Editorial Capability Cards */}
+        <div className="pt-8 sm:pt-12 border-t border-white/[0.08]">
+          <EditorialCapabilityCards />
         </div>
       </div>
     </section>
