@@ -9,8 +9,8 @@ export const SITE_METADATA = {
   url: 'https://mansikonde.dev',
   author: 'Mansi Konde',
   twitterHandle: '@mansikonde',
-  tagline: 'I follow the question. Then I build the answer.',
-  edition: 'Vol. 2026 // Folio Edition',
+  tagline: 'Full-stack engineer building software that feels effortless',
+  edition: '',
 };
 
 export const TRANSITION_CONFIG = {

@@ -101,13 +101,11 @@ export function CapabilitiesSection({ className = '' }: CapabilitiesSectionProps
           {/* Top Eyebrow Tag */}
           <div className="flex items-center justify-between font-mono text-xs text-[#71717A] border-b border-white/[0.06] pb-4">
             <div className="inline-flex items-center gap-2 text-[#A1A1AA] uppercase tracking-widest pb-1 border-b border-white/10">
-              <span>03 // CAPABILITIES &amp; ARCHITECTURE</span>
+              <span>03 / Capabilities</span>
             </div>
 
             <div className="hidden sm:flex items-center gap-3 text-[11px]">
-              <span>CORE DISCIPLINES</span>
-              <span className="text-white/20">•</span>
-              <span className="text-[#F4F4F5]">EVIDENCE-GROUNDED</span>
+              <span>Core Disciplines &amp; Skills</span>
             </div>
           </div>
 
@@ -124,11 +122,7 @@ export function CapabilitiesSection({ className = '' }: CapabilitiesSectionProps
 
             <div ref={copyRef} className="max-w-2xl space-y-2">
               <p className="font-sans text-base sm:text-lg text-[#A1A1AA] leading-relaxed font-normal">
-                Grounded in four core areas of practice: systems architecture, applied AI verification,
-                spatial computing, and reproducible developer tooling.
-              </p>
-              <p className="font-mono text-xs text-[#71717A] pt-1">
-                Every capability is linked to verified repository commits and architectural decision logs.
+                Core areas of technical practice across full-stack engineering, interactive 3D, intelligent systems, and developer tooling.
               </p>
             </div>
           </div>
@@ -140,9 +134,9 @@ export function CapabilitiesSection({ className = '' }: CapabilitiesSectionProps
         <div className="space-y-8" aria-label="Core Engineering Capabilities">
           <div className="flex items-center justify-between font-mono text-xs text-[#71717A] border-b border-white/[0.06] pb-3">
             <span className="text-[#F4F4F5] font-semibold uppercase tracking-wider">
-              CAPABILITY SYSTEMS MATRIX
+              Technical Disciplines
             </span>
-            <span>4 QUADRANTS</span>
+            <span>4 Focus Areas</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

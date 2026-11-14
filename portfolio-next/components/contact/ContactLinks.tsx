@@ -51,35 +51,20 @@ export function ContactLinks() {
       <div className="p-6 sm:p-8 rounded-xl border border-white/[0.08] bg-[#121214] shadow-2xl relative overflow-hidden">
         {/* Card Header */}
         <div className="flex items-center justify-between pb-5 mb-5 border-b border-white/[0.06] font-mono text-xs">
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#34D399]" aria-hidden="true" />
-            <span className="text-[#F4F4F5] font-semibold tracking-wider uppercase text-[11px]">
-              Direct Inquiry Channel
-            </span>
-          </div>
-          <span className="text-[#71717A] text-[11px] hidden sm:inline">
-            Response: 24–48 Hours
+          <span className="text-[#F4F4F5] font-medium tracking-wider uppercase text-[11px]">
+            Direct Contact
+          </span>
+          <span className="text-[#71717A] text-[11px]">
+            Email
           </span>
         </div>
 
-        {/* Email Address & Status Banner */}
+        {/* Email Address & Actions */}
         <div className="space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+          <div>
             <span className="font-mono text-[11px] tracking-wider uppercase text-[#A1A1AA]">
-              Electronic Mailbox
+              Email Address
             </span>
-
-            {isEmailVerified ? (
-              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-[#34D399]/10 text-[#34D399] border border-[#34D399]/30 self-start sm:self-auto">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#34D399]" />
-                Verified Active Inbox
-              </span>
-            ) : (
-              <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[10px] font-mono font-medium bg-amber-500/10 text-amber-300 border border-amber-500/20 self-start sm:self-auto">
-                <ShieldAlert className="w-3 h-3 text-amber-400" />
-                Inquiry Gateway
-              </span>
-            )}
           </div>
 
           {/* Email Address Display */}
@@ -93,7 +78,7 @@ export function ContactLinks() {
                   {emailAddress}
                 </span>
                 <span className="font-sans text-[11px] text-[#71717A]">
-                  Direct primary address
+                  Primary email
                 </span>
               </div>
             </div>
@@ -130,18 +115,18 @@ export function ContactLinks() {
         </div>
       </div>
 
-      {/* 2. Secondary Provenance & Network Card */}
+      {/* 2. Secondary Code & Profiles Card */}
       <div className="p-6 rounded-xl border border-white/[0.08] bg-[#121214] space-y-4">
         <span className="font-mono text-[11px] tracking-wider uppercase text-[#71717A] block">
-          Network &amp; Code Provenance
+          Online &amp; Code
         </span>
 
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div>
           <a
             href={githubSocial?.url || 'https://github.com/Mansi-2024'}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-between sm:justify-start gap-3 p-3 rounded-lg border border-white/[0.06] bg-[#18181B] hover:border-white/30 text-xs font-mono text-[#F4F4F5] hover:text-white transition-all group flex-1"
+            className="w-full inline-flex items-center justify-between gap-3 p-3.5 rounded-lg border border-white/[0.06] bg-[#18181B] hover:border-white/30 text-xs font-mono text-[#F4F4F5] hover:text-white transition-all group"
           >
             <div className="flex items-center gap-2.5">
               <GithubIcon className="w-4 h-4 text-[#38BDF8]" />
@@ -149,11 +134,6 @@ export function ContactLinks() {
             </div>
             <ArrowUpRight className="w-3.5 h-3.5 text-[#71717A] group-hover:text-white transition-colors" />
           </a>
-
-          <div className="w-full sm:w-auto p-3 rounded-lg border border-white/[0.06] bg-[#18181B] text-xs font-mono text-[#A1A1AA] flex items-center justify-between sm:justify-start gap-4">
-            <span className="text-[#71717A]">Timezone:</span>
-            <span className="text-[#F4F4F5]">IST (UTC+5:30)</span>
-          </div>
         </div>
       </div>
     </div>

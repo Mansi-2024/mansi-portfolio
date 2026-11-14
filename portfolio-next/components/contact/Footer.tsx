@@ -85,12 +85,11 @@ export function Footer() {
             <div>Three.js + React Three Fiber</div>
           </div>
 
-          {/* Column 4: Location & Verification */}
+          {/* Column 4: Links & Code */}
           <div className="space-y-1.5 text-[11px]">
             <span className="text-[#A1A1AA] uppercase tracking-wider block font-semibold text-[10px]">
-              Location &amp; Provenance
+              Links &amp; Code
             </span>
-            <div className="text-[#F4F4F5]">Mumbai, India (UTC +5:30)</div>
             <div>
               <a
                 href={githubLink?.url || 'https://github.com/Mansi-2024'}
@@ -102,7 +101,7 @@ export function Footer() {
                 <ArrowUpRight className="w-3 h-3 text-[#71717A]" />
               </a>
             </div>
-            <div className="text-[#34D399]">Available for Build 2026</div>
+            <div className="text-[#A1A1AA]">Open to opportunities</div>
           </div>
         </div>
 

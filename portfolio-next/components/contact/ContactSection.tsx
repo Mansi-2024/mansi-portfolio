@@ -73,21 +73,15 @@ export function ContactSection() {
           className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-16 border-b border-white/[0.06] font-mono text-xs text-[#71717A]"
         >
           <div className="flex items-center gap-2">
-            <span className="text-[#38BDF8] font-bold">04</span>
+            <span className="text-[#A1A1AA] font-mono">04</span>
             <span className="text-white/20">/</span>
-            <span className="uppercase tracking-widest text-[#F4F4F5] font-semibold">
-              Contact &amp; Dialogue
+            <span className="uppercase tracking-widest text-[#F4F4F5]">
+              Contact
             </span>
           </div>
 
-          <div className="flex items-center gap-3">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#34D399] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#34D399]" />
-            </span>
-            <span className="text-[#34D399] tracking-wider uppercase text-[11px] font-medium">
-              Inquiries Active • Available for Build 2026
-            </span>
+          <div className="flex items-center gap-2 text-[#A1A1AA] text-xs font-mono">
+            <span>Open to opportunities</span>
           </div>
         </div>
 
@@ -100,7 +94,7 @@ export function ContactSection() {
           <div className="lg:col-span-6 space-y-8">
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 pb-1 border-b border-white/10 font-mono text-xs text-[#A1A1AA] uppercase tracking-widest">
-                <span>Direct Dialogue</span>
+                <span>Get in Touch</span>
               </div>
 
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-[#F4F4F5] tracking-tight leading-[1.08] font-normal">
@@ -113,33 +107,12 @@ export function ContactSection() {
             </p>
 
             <div className="p-5 rounded-xl border border-white/[0.07] bg-[#121214] space-y-2 font-sans">
-              <span className="font-mono text-xs uppercase tracking-wider text-[#38BDF8] block font-semibold">
-                Collaboration Scope
+              <span className="font-mono text-xs uppercase tracking-wider text-[#A1A1AA] block font-semibold">
+                Opportunities
               </span>
               <p className="text-sm text-[#A1A1AA] leading-relaxed">
-                Open to creative engineering roles, systems architecture research, and select collaborative software commissions in 2026.
+                Open to full-stack engineering roles, internships, and collaborative software projects.
               </p>
-            </div>
-
-            <p className="font-sans text-sm text-[#71717A] leading-relaxed">
-              Operating at the convergence of software architecture, intelligent verification systems, and interactive 3D computing.
-            </p>
-
-            {/* Quick Coordinates Badge */}
-            <div className="grid grid-cols-2 gap-4 pt-2 font-mono text-xs text-[#71717A]">
-              <div className="p-3.5 rounded-lg border border-white/[0.06] bg-[#121214]">
-                <div className="text-[10px] text-[#A1A1AA] uppercase mb-1">
-                  Role &amp; Focus
-                </div>
-                <span className="text-[#F4F4F5] font-medium text-xs">Creative Engineer</span>
-              </div>
-
-              <div className="p-3.5 rounded-lg border border-white/[0.06] bg-[#121214]">
-                <div className="text-[10px] text-[#A1A1AA] uppercase mb-1">
-                  Location &amp; Zone
-                </div>
-                <span className="text-[#F4F4F5] font-medium text-xs">Mumbai, India (IST UTC+5:30)</span>
-              </div>
             </div>
           </div>
 

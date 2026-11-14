@@ -111,13 +111,11 @@ export function EditorialWorkIntro({ className = '' }: EditorialWorkIntroProps) 
         {/* Top Eyebrow Tag */}
         <div className="flex items-center justify-between font-mono text-xs text-[#71717A]">
           <div className="inline-flex items-center gap-2 text-[#A1A1AA] uppercase tracking-widest pb-1 border-b border-white/10">
-            <span>02 // ARCHITECTURAL CASE STUDIES</span>
+            <span>02 / Selected Work</span>
           </div>
 
           <div className="hidden sm:flex items-center gap-3 text-[11px]">
-            <span>6 AUTHENTIC PROJECTS</span>
-            <span className="text-white/20">•</span>
-            <span className="text-[#F4F4F5]">EDITORIAL MAGAZINE PRESENTATION</span>
+            <span>Featured Case Studies</span>
           </div>
         </div>
 
@@ -133,12 +131,8 @@ export function EditorialWorkIntro({ className = '' }: EditorialWorkIntroProps) 
           </div>
 
           <div ref={copyRef} className="max-w-2xl space-y-3 pt-2">
-            <p className="font-serif italic text-xl sm:text-2xl text-[#E4E4E7] leading-snug">
-              &ldquo;I follow the question. Then I build the answer.&rdquo;
-            </p>
             <p className="font-sans text-sm sm:text-base text-[#A1A1AA] leading-relaxed font-normal">
-              A curated collection of systems, experiments, and verifiable software architectures.
-              Each case study documents real problem discovery, structural decisions, and working implementations—without synthetic metrics or decorative filler.
+              A curated selection of projects exploring web systems, interactive 3D, and practical software applications—built with focus on clean architecture and smooth user experiences.
             </p>
           </div>
         </div>

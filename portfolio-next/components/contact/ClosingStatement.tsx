@@ -61,16 +61,14 @@ export function ClosingStatement() {
             <span className="uppercase tracking-widest text-[#A1A1AA]">
               Closing Statement
             </span>
-            <span className="text-white/20">//</span>
-            <span>Folio Vol. 2026</span>
           </div>
 
           <h2
             ref={textRef}
             className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-[#F4F4F5] tracking-tight leading-[1.08] font-normal"
           >
-            &ldquo;I follow the question. <br className="hidden sm:inline" />
-            Then I build the answer.&rdquo;
+            Full-stack engineer building <br className="hidden sm:inline" />
+            software that feels effortless.
           </h2>
 
           <p className="font-sans text-base sm:text-lg text-[#A1A1AA] font-normal max-w-xl leading-relaxed pt-2">

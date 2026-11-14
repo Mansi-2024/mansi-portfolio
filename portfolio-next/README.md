@@ -1,6 +1,6 @@
 # Mansi Konde — Creative Engineer Portfolio (Next.js 16 Rebuild)
 
-> *"I follow the question. Then I build the answer."*
+> *"Full-stack engineer building software that feels effortless"*
 
 Dedicated Next.js 16 application directory implementing the cinematic, scroll-driven portfolio architecture for **Mansi Konde**.
 

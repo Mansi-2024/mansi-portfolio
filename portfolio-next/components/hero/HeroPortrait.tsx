@@ -10,20 +10,18 @@ interface HeroPortraitProps {
 }
 
 /**
- * HeroPortrait Component — Authentic Editorial Portrait
+ * HeroPortrait Component — Simplified Personal Portrait
  *
  * Implements:
- * - High-craft art-directed 3:4 studio portrait frame
- * - Direct integration of authentic professional portrait photograph of Mansi Konde
- * - Preservation of natural facial features, skin tones, hair, and burgundy ribbed top
- * - Whisper-quiet 1px architectural hairline border with refined dark charcoal palette
+ * - Gallery-grade 3:4 portrait frame with subtle architectural border
+ * - Authentic photograph of Mansi Konde without technical specimen decorations
  * - Responsive sizing and object-[center_18%] alignment
- * - Graceful fallback handling if image fails to load
+ * - Zero studio labels, fake ratios, or status indicators
  */
 export function HeroPortrait({
   className = '',
   imageSrc = '/assets/mansi-konde.jpg',
-  imageAlt = 'Professional portrait photograph of Mansi Konde, Creative Engineer',
+  imageAlt = 'Mansi Konde',
   innerRef,
 }: HeroPortraitProps) {
   const [imageFailed, setImageFailed] = useState(false);
@@ -32,10 +30,10 @@ export function HeroPortrait({
     <div
       ref={innerRef}
       className={`hero-portrait-container relative w-full max-w-[280px] sm:max-w-[320px] lg:max-w-[360px] mx-auto select-none ${className}`}
-      aria-label="Studio Portrait — Mansi Konde"
+      aria-label="Portrait — Mansi Konde"
     >
-      {/* Outer Editorial Mount / Passe-partout Frame */}
-      <div className="group relative rounded-2xl border border-white/[0.08] bg-[#121214] p-3 sm:p-3.5 shadow-2xl transition-all duration-500 hover:border-white/[0.16]">
+      {/* Outer Editorial Mount */}
+      <div className="group relative aspect-[3/4] w-full rounded-2xl border border-white/[0.08] bg-[#121214] p-2.5 sm:p-3 shadow-2xl transition-all duration-500 hover:border-white/[0.16] overflow-hidden">
         {/* Subtle Film Grain Noise Texture */}
         <div 
           className="absolute inset-0 pointer-events-none opacity-[0.03] rounded-2xl bg-repeat"
@@ -46,18 +44,8 @@ export function HeroPortrait({
           aria-hidden="true"
         />
 
-        {/* Top Minimal Colophon Bar */}
-        <div className="relative z-10 flex items-center justify-between pb-2.5 mb-2.5 border-b border-white/[0.06] font-mono text-[10px] text-[#A1A1AA]">
-          <span className="tracking-wider uppercase text-[#F4F4F5] font-medium">
-            Mansi Konde
-          </span>
-          <span className="tracking-widest uppercase text-[#71717A]">
-            Studio // 3:4
-          </span>
-        </div>
-
         {/* Inner Canvas Display Window — Strict 3:4 Aspect Ratio */}
-        <div className="relative aspect-[3/4] w-full rounded-xl border border-white/[0.06] bg-[#0E0E10] overflow-hidden">
+        <div className="relative w-full h-full rounded-xl border border-white/[0.06] bg-[#0E0E10] overflow-hidden">
           {!imageFailed ? (
             <>
               <img
@@ -85,17 +73,6 @@ export function HeroPortrait({
               </p>
             </div>
           )}
-        </div>
-
-        {/* Bottom Refined Metadata Strip */}
-        <div className="relative z-10 mt-3 pt-2.5 border-t border-white/[0.06] flex items-center justify-between font-mono text-[10px] text-[#71717A]">
-          <span className="tracking-wide text-[#A1A1AA]">
-            Creative Engineer
-          </span>
-          <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded border border-white/[0.08] text-[#F4F4F5] bg-white/[0.02]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#34D399]" aria-hidden="true" />
-            <span>Mumbai, IN</span>
-          </div>
         </div>
       </div>
     </div>

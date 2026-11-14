@@ -120,57 +120,57 @@ export function IdentityCard() {
           <div className="absolute bottom-2 left-1/2 -translate-x-1/2 pointer-events-none">
             <div className="inline-flex items-center gap-2 font-mono text-[10px] sm:text-xs text-[#A1A1AA] px-3.5 py-1.5 rounded-full border border-white/10 bg-[#121214]/90 backdrop-blur-md shadow-lg">
               <Move className="w-3.5 h-3.5 text-[#38BDF8]" aria-hidden="true" />
-              <span>TACTILE 3D CREDENTIAL // DRAG OR TILT</span>
+              <span>INTERACTIVE 3D // DRAG OR TILT</span>
             </div>
           </div>
         </div>
 
-        {/* Right Column: Editorial Perspective & Core Values */}
+        {/* Right Column: Grounded Perspective & Core Focus */}
         <div ref={infoColRef} className="w-full lg:w-5/12 flex flex-col justify-center space-y-6">
           {/* Eyebrow */}
-          <div className="fade-in-item inline-flex items-center gap-2 self-start font-mono text-xs text-[#A1A1AA] uppercase tracking-widest pb-1 border-b border-white/10">
-            <span>01 // PERSPECTIVE & BACKGROUND</span>
+          <div className="fade-in-item inline-flex items-center gap-2 self-start font-mono text-xs text-[#A1A1AA] uppercase tracking-wider pb-1 border-b border-white/10">
+            <span>About</span>
           </div>
 
-          {/* Editorial Headline */}
+          {/* Editorial Headline & Narrative */}
           <div className="fade-in-item space-y-3">
             <h2 className="font-serif text-3xl sm:text-4xl text-[#F4F4F5] tracking-tight leading-snug font-normal">
-              &ldquo;Engineering is not merely the assembly of components; it is the pursuit of truth through working software.&rdquo;
+              &ldquo;Building software from scratch to understand how systems really work.&rdquo;
             </h2>
             <p className="font-sans text-base text-[#A1A1AA] leading-relaxed font-normal">
-              Mansi Konde is a creative engineer and technologist based in Mumbai, operating at the convergence of systems architecture, spatial computing, and deterministic verification.
+              I&apos;m Mansi Konde, an engineering student and creative developer. I enjoy building things end-to-end: experimenting with interactive 3D in the browser, writing clean full-stack applications, and solving practical problems through software.
             </p>
           </div>
 
-          {/* 3 Core Architectural Tenets */}
+          {/* 3 Practical Engineering Focuses */}
           <div className="fade-in-item space-y-3 pt-2">
             <div className="p-3.5 rounded-lg border border-white/[0.07] bg-[#121214]">
               <div className="flex items-center gap-2 font-mono text-xs text-[#38BDF8]">
                 <span>[01]</span>
-                <span className="font-medium text-[#F4F4F5]">Determinism Over Heuristics</span>
+                <span className="font-medium text-[#F4F4F5]">Full-Stack Foundations</span>
               </div>
               <p className="font-sans text-xs sm:text-sm text-[#A1A1AA] mt-1 pl-6 leading-relaxed">
-                Prioritizing strict state machines and authoritative registry cross-checks over unverified AI probabilistic guessing.
+                Building responsive, structured web applications using React, Next.js, and TypeScript with an emphasis on clarity and performance.
               </p>
             </div>
 
             <div className="p-3.5 rounded-lg border border-white/[0.07] bg-[#121214]">
               <div className="flex items-center gap-2 font-mono text-xs text-[#38BDF8]">
                 <span>[02]</span>
-                <span className="font-medium text-[#F4F4F5]">Tactile Human-Interface Craft</span>
+                <span className="font-medium text-[#F4F4F5]">Interactive &amp; 3D Experiences</span>
               </div>
               <p className="font-sans text-xs sm:text-sm text-[#A1A1AA] mt-1 pl-6 leading-relaxed">
-                Designing interfaces with physical weight, harmonic spring damping, and intuitive spatial interaction standards.
+                Exploring Three.js, WebGL shaders, and VR simulations to make digital interfaces feel more tactile and engaging.
               </p>
             </div>
 
             <div className="p-3.5 rounded-lg border border-white/[0.07] bg-[#121214]">
               <div className="flex items-center gap-2 font-mono text-xs text-[#38BDF8]">
                 <span>[03]</span>
-                <span className="font-medium text-[#F4F4F5]">Evidence-Based Verification</span>
+                <span className="font-medium text-[#F4F4F5]">Learning Through Building</span>
               </div>
               <p className="font-sans text-xs sm:text-sm text-[#A1A1AA] mt-1 pl-6 leading-relaxed">
-                Cryptographic receipt protocols (RFC 8785), AST code parsing, and isolated automated test runners.
+                Deepening technical understanding by building real projects—from verification state machines to collaborative tools.
               </p>
             </div>
           </div>
@@ -183,7 +183,7 @@ export function IdentityCard() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 hover:border-white/50 bg-white/[0.03] font-mono text-xs text-[#F4F4F5] hover:text-white transition-all group"
             >
-              <span>Verify on GitHub</span>
+              <span>GitHub Profile</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-[#71717A] group-hover:text-white transition-colors" />
             </a>
 
@@ -194,7 +194,7 @@ export function IdentityCard() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 hover:border-white/30 bg-transparent font-mono text-xs text-[#A1A1AA] hover:text-[#F4F4F5] transition-all"
             >
               <FileText className="w-3.5 h-3.5 text-[#71717A]" />
-              <span>Curated Resume</span>
+              <span>Resume</span>
             </a>
           </div>
         </div>

@@ -53,7 +53,6 @@ export function HeroPlaceholder() {
           <ArrowDown className="w-3.5 h-3.5 text-[#00f0ff] animate-bounce" />
           <span>SCROLL TO EXPLORE SELECTED WORK</span>
         </div>
-        <span className="hidden sm:inline">IST (UTC+5:30)</span>
       </div>
     </section>
   );

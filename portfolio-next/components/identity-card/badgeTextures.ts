@@ -6,9 +6,11 @@ import { profileData } from '@/data/profile';
  * Renders at 1024x1536 for crisp Retina fidelity.
  *
  * Implements:
+ * - Minimal, authentic personal identity object
  * - Authentic 520x650 photo crop of Mansi Konde in 3:4 portrait window
- * - High-contrast editorial typography (#FFFFFF, #E4E4E7, #D4D4D8) without futuristic/neon styling
- * - Clear distinction between verifiable links (GitHub repository) and decorative design elements (specimen badge & build hash)
+ * - High-contrast, clean typography (#FFFFFF, #E4E4E7, #D4D4D8) without futuristic/neon styling
+ * - Genuine contact & repository links (GitHub & direct email)
+ * - Zero fake serial numbers, zero decorative hashes, zero simulated security credentials
  * - Safe disposal and automatic WebGL texture update upon photo load
  */
 export function createBadgeTextures(): {
@@ -20,7 +22,7 @@ export function createBadgeTextures(): {
   const height = 1536;
 
   // ---------------------------------------------------------------------------
-  // 1. FRONT FACE TEXTURE (Editorial Physical Credential)
+  // 1. FRONT FACE TEXTURE (Minimal Personal Identity Object)
   // ---------------------------------------------------------------------------
   const frontCanvas = document.createElement('canvas');
   frontCanvas.width = width;
@@ -32,9 +34,9 @@ export function createBadgeTextures(): {
   fCtx.fillRect(0, 0, width, height);
 
   // Subtle architectural grid texture
-  fCtx.strokeStyle = 'rgba(255, 255, 255, 0.03)';
+  fCtx.strokeStyle = 'rgba(255, 255, 255, 0.025)';
   fCtx.lineWidth = 1;
-  const gridSize = 40;
+  const gridSize = 48;
   for (let x = 0; x < width; x += gridSize) {
     fCtx.beginPath();
     fCtx.moveTo(x, 0);
@@ -51,7 +53,7 @@ export function createBadgeTextures(): {
   // Outer border with subtle inner margin
   fCtx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
   fCtx.lineWidth = 2.5;
-  fCtx.strokeRect(40, 40, width - 80, height - 80);
+  fCtx.strokeRect(44, 44, width - 88, height - 88);
 
   // Top Clip Cutout Hole
   fCtx.fillStyle = '#0B0B0C';
@@ -66,39 +68,29 @@ export function createBadgeTextures(): {
   fCtx.fill();
   fCtx.stroke();
 
-  // Header Colophon
+  // Header Bar: Minimal wordmark
   fCtx.fillStyle = '#FFFFFF';
-  fCtx.font = 'bold 28px "JetBrains Mono", monospace';
-  fCtx.fillText(profileData.wordmark, 72, 150);
+  fCtx.font = 'bold 26px "JetBrains Mono", monospace';
+  fCtx.fillText(profileData.name.toUpperCase(), 76, 146);
 
   fCtx.fillStyle = '#A1A1AA';
-  fCtx.font = '500 20px "JetBrains Mono", monospace';
-  fCtx.fillText('// FOLIO 2026', 150, 150);
-
-  // Status Indicator Dot (Subtle Emerald)
-  fCtx.fillStyle = '#34D399';
-  fCtx.beginPath();
-  fCtx.arc(width - 80, 142, 6, 0, Math.PI * 2);
-  fCtx.fill();
-
-  fCtx.fillStyle = '#E4E4E7';
-  fCtx.font = '600 18px "JetBrains Mono", monospace';
+  fCtx.font = '500 18px "JetBrains Mono", monospace';
   fCtx.textAlign = 'right';
-  fCtx.fillText('AVAILABLE', width - 96, 150);
+  fCtx.fillText('FOLIO', width - 76, 146);
   fCtx.textAlign = 'left';
 
   // Divider
   fCtx.strokeStyle = 'rgba(255, 255, 255, 0.10)';
   fCtx.beginPath();
-  fCtx.moveTo(72, 180);
-  fCtx.lineTo(width - 72, 180);
+  fCtx.moveTo(76, 175);
+  fCtx.lineTo(width - 76, 175);
   fCtx.stroke();
 
-  // Portrait Specimen Window (3:4 ratio)
+  // Portrait Window (520x650 px, 4:5 ratio)
   const portraitW = 520;
   const portraitH = 650;
   const portraitX = (width - portraitW) / 2;
-  const portraitY = 220;
+  const portraitY = 215;
 
   // Portrait frame placeholder background
   fCtx.fillStyle = '#18181B';
@@ -148,65 +140,40 @@ export function createBadgeTextures(): {
   // Name & Identity Typography
   fCtx.fillStyle = '#FFFFFF';
   fCtx.font = 'bold 56px "Inter", sans-serif';
-  fCtx.fillText(profileData.name.toUpperCase(), 72, 950);
+  fCtx.fillText(profileData.name.toUpperCase(), 76, 960);
 
   fCtx.fillStyle = '#E4E4E7';
   fCtx.font = '600 24px "JetBrains Mono", monospace';
-  fCtx.fillText(profileData.role.toUpperCase(), 72, 995);
+  fCtx.fillText(profileData.role.toUpperCase(), 76, 1010);
 
   fCtx.fillStyle = '#D4D4D8';
   fCtx.font = '500 20px "Inter", sans-serif';
-  fCtx.fillText('Systems Architecture • Interactive 3D • Verifiable Software', 72, 1035);
+  fCtx.fillText('Full-Stack Development • Interactive 3D • Software Tools', 76, 1055);
 
   // Divider
   fCtx.strokeStyle = 'rgba(255, 255, 255, 0.10)';
   fCtx.beginPath();
-  fCtx.moveTo(72, 1080);
-  fCtx.lineTo(width - 72, 1080);
+  fCtx.moveTo(76, 1105);
+  fCtx.lineTo(width - 76, 1105);
   fCtx.stroke();
 
   // Tagline Pull Quote on Badge
   fCtx.fillStyle = '#FFFFFF';
-  fCtx.font = 'italic 24px "Newsreader", serif';
-  fCtx.fillText('"I follow the question. Then I build the answer."', 72, 1130);
+  fCtx.font = 'italic 23px "Newsreader", serif';
+  fCtx.fillText('"Full-stack engineer building software that feels effortless"', 76, 1165);
 
-  // Technical Metadata Grid
-  const metaY = 1190;
+  // Bottom Repository Link (Authentic & Direct)
+  const repoY = 1380;
   fCtx.fillStyle = '#A1A1AA';
-  fCtx.font = '600 16px "JetBrains Mono", monospace';
-  fCtx.fillText('LOCATION', 72, metaY);
-  fCtx.fillText('TIMEZONE', 340, metaY);
-  fCtx.fillText('SPECIMEN TYPE', 620, metaY);
+  fCtx.font = '600 15px "JetBrains Mono", monospace';
+  fCtx.fillText('GITHUB PROFILE', 76, repoY);
 
   fCtx.fillStyle = '#FFFFFF';
-  fCtx.font = '600 20px "JetBrains Mono", monospace';
-  fCtx.fillText('MUMBAI, IN', 72, metaY + 34);
-  fCtx.fillText('IST (UTC+5:30)', 340, metaY + 34);
-  fCtx.fillText('PORTFOLIO BADGE', 620, metaY + 34);
-
-  // Clearly designated commit hash bar (Decorative Design Element)
-  const hashY = 1290;
-  fCtx.fillStyle = '#18181B';
-  fCtx.fillRect(72, hashY, width - 144, 70);
-  fCtx.strokeStyle = 'rgba(255, 255, 255, 0.10)';
-  fCtx.lineWidth = 1;
-  fCtx.strokeRect(72, hashY, width - 144, 70);
-
-  fCtx.fillStyle = '#A1A1AA';
-  fCtx.font = '600 14px "JetBrains Mono", monospace';
-  fCtx.fillText('FOLIO COMMIT // DESIGN SPECIMEN', 92, hashY + 28);
-
-  fCtx.fillStyle = '#E4E4E7';
-  fCtx.font = '500 16px "JetBrains Mono", monospace';
-  fCtx.fillText('GIT HEAD: 7a7f442b1f2026e98556c2', 92, hashY + 54);
-
-  // Bottom Repository Link (Verifiable link)
-  fCtx.fillStyle = '#A1A1AA';
-  fCtx.font = '600 16px "JetBrains Mono", monospace';
-  fCtx.fillText('VERIFIABLE REPOSITORY // github.com/Mansi-2024', 72, 1420);
+  fCtx.font = '600 22px "JetBrains Mono", monospace';
+  fCtx.fillText('github.com/Mansi-2024', 76, repoY + 36);
 
   // ---------------------------------------------------------------------------
-  // 2. BACK FACE TEXTURE (Editorial Colophon & Values)
+  // 2. BACK FACE TEXTURE (Personal Overview & Practices)
   // ---------------------------------------------------------------------------
   const backCanvas = document.createElement('canvas');
   backCanvas.width = width;
@@ -220,7 +187,7 @@ export function createBadgeTextures(): {
   // Outer border
   bCtx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
   bCtx.lineWidth = 2.5;
-  bCtx.strokeRect(40, 40, width - 80, height - 80);
+  bCtx.strokeRect(44, 44, width - 88, height - 88);
 
   // Slot hole matching front
   bCtx.fillStyle = '#0B0B0C';
@@ -231,80 +198,82 @@ export function createBadgeTextures(): {
   bCtx.fill();
   bCtx.stroke();
 
-  // Subtle Matte Band
-  bCtx.fillStyle = '#141416';
-  bCtx.fillRect(40, 140, width - 80, 130);
+  // Top Minimal Colophon
+  bCtx.fillStyle = '#FFFFFF';
+  bCtx.font = 'bold 26px "JetBrains Mono", monospace';
+  bCtx.fillText(profileData.name.toUpperCase(), 76, 146);
 
   bCtx.fillStyle = '#A1A1AA';
-  bCtx.font = '600 18px "JetBrains Mono", monospace';
-  bCtx.fillText('FOLIO DESIGN SPECIFICATION // VOL. 2026', 72, 215);
+  bCtx.font = '500 18px "JetBrains Mono", monospace';
+  bCtx.textAlign = 'right';
+  bCtx.fillText('ABOUT', width - 76, 146);
+  bCtx.textAlign = 'left';
 
-  // Core Architectural Values
+  // Divider
+  bCtx.strokeStyle = 'rgba(255, 255, 255, 0.10)';
+  bCtx.beginPath();
+  bCtx.moveTo(76, 175);
+  bCtx.lineTo(width - 76, 175);
+  bCtx.stroke();
+
+  // Engineering Practices Title
   bCtx.fillStyle = '#FFFFFF';
   bCtx.font = 'bold 30px "Newsreader", serif';
-  bCtx.fillText('Core Architectural Tenets', 72, 350);
+  bCtx.fillText('Engineering Focus', 76, 260);
 
-  const tenets = [
-    { num: '01', title: 'Determinism Over Heuristics', desc: 'Strict state machines and verified claim provenance over black-box AI.' },
-    { num: '02', title: 'Tactile Human-Interface Craft', desc: 'Precision ergonomics, physical spring damping, and purposeful motion.' },
-    { num: '03', title: 'Evidence-Based Verification', desc: 'Cryptographic receipts, AST analysis, and isolated test execution.' },
+  const practices = [
+    {
+      num: '01',
+      title: 'Full-Stack Foundations',
+      desc: 'Building responsive, structured web applications using React, Next.js, and TypeScript.',
+    },
+    {
+      num: '02',
+      title: 'Interactive & 3D Experiences',
+      desc: 'Exploring Three.js, WebGL shaders, and VR simulations to create tactile software interfaces.',
+    },
+    {
+      num: '03',
+      title: 'Learning Through Building',
+      desc: 'Deepening systems intuition by implementing prototypes, testing hypotheses, and open source.',
+    },
   ];
 
-  let ty = 430;
-  for (const t of tenets) {
+  let py = 350;
+  for (const p of practices) {
     bCtx.fillStyle = '#38BDF8';
     bCtx.font = '600 18px "JetBrains Mono", monospace';
-    bCtx.fillText(`[${t.num}]`, 72, ty);
+    bCtx.fillText(`[${p.num}]`, 76, py);
 
     bCtx.fillStyle = '#FFFFFF';
     bCtx.font = '600 22px "Inter", sans-serif';
-    bCtx.fillText(t.title, 130, ty);
+    bCtx.fillText(p.title, 134, py);
 
     bCtx.fillStyle = '#D4D4D8';
     bCtx.font = '400 19px "Inter", sans-serif';
-    bCtx.fillText(t.desc, 130, ty + 30);
+    bCtx.fillText(p.desc, 134, py + 32);
 
-    ty += 110;
+    py += 130;
   }
 
   // Divider
   bCtx.strokeStyle = 'rgba(255, 255, 255, 0.10)';
   bCtx.beginPath();
-  bCtx.moveTo(72, ty + 20);
-  bCtx.lineTo(width - 72, ty + 20);
+  bCtx.moveTo(76, py + 40);
+  bCtx.lineTo(width - 76, py + 40);
   bCtx.stroke();
 
-  // Direct Communication & Verifiable Repository
-  const commY = ty + 80;
+  // Communication & Public Repository
+  const commY = py + 110;
   bCtx.fillStyle = '#A1A1AA';
-  bCtx.font = '600 16px "JetBrains Mono", monospace';
-  bCtx.fillText('DIRECT ELECTRONIC MAILBOX', 72, commY);
-  bCtx.fillText('VERIFIABLE PUBLIC REPOSITORY', 72, commY + 110);
+  bCtx.font = '600 15px "JetBrains Mono", monospace';
+  bCtx.fillText('DIRECT EMAIL', 76, commY);
+  bCtx.fillText('GITHUB REPOSITORY', 76, commY + 120);
 
   bCtx.fillStyle = '#FFFFFF';
   bCtx.font = '600 24px "JetBrains Mono", monospace';
-  bCtx.fillText(profileData.email.address, 72, commY + 40);
-  bCtx.fillText('github.com/Mansi-2024', 72, commY + 150);
-
-  // Minimal Specimen Stamp Block (Bottom Right)
-  const qrX = width - 240;
-  const qrY = height - 260;
-  const qrSize = 160;
-  bCtx.fillStyle = '#18181B';
-  bCtx.fillRect(qrX, qrY, qrSize, qrSize);
-  bCtx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
-  bCtx.strokeRect(qrX, qrY, qrSize, qrSize);
-
-  bCtx.fillStyle = '#FFFFFF';
-  bCtx.font = '600 12px "JetBrains Mono", monospace';
-  bCtx.fillText('MK.FOLIO.2026', qrX + 16, qrY + 36);
-  bCtx.fillStyle = '#D4D4D8';
-  bCtx.font = '500 11px "JetBrains Mono", monospace';
-  bCtx.fillText('DESIGN SPECIMEN', qrX + 16, qrY + 60);
-  bCtx.fillStyle = '#38BDF8';
-  bCtx.fillText('GITHUB VERIFIED', qrX + 16, qrY + 84);
-  bCtx.fillStyle = '#A1A1AA';
-  bCtx.fillText('MUMBAI • IN', qrX + 16, qrY + 108);
+  bCtx.fillText(profileData.email.address, 76, commY + 42);
+  bCtx.fillText('github.com/Mansi-2024', 76, commY + 162);
 
   const backTexture = new THREE.CanvasTexture(backCanvas);
   backTexture.colorSpace = THREE.SRGBColorSpace;
