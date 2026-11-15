@@ -1,0 +1,139 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
+import { profileData } from '@/data/profile';
+import { ArrowUp, ArrowUpRight } from 'lucide-react';
+import { useReducedMotion } from '@/hooks/useReducedMotion';
+
+function GithubIcon({ className = 'w-3.5 h-3.5' }: { className?: string }) {
+  return (
+    <svg
+      role="img"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+      <path d="M9 18c-4.51 2-5-2-7-2" />
+    </svg>
+  );
+}
+
+export function Footer() {
+  const [currentYear, setCurrentYear] = useState<number>(2026);
+  const prefersReducedMotion = useReducedMotion();
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
+
+  const handleScrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (typeof window !== 'undefined') {
+      window.scrollTo({
+        top: 0,
+        behavior: prefersReducedMotion ? 'auto' : 'smooth',
+      });
+    }
+  };
+
+  const githubLink = profileData.socials.find((s) => s.platform.toLowerCase() === 'github');
+
+  return (
+    <footer
+      aria-label="Publication Colophon and Site Footer"
+      className="w-full border-t border-white/[0.08] bg-[#09090B] py-16 px-6 sm:px-8 text-[#71717A] font-mono text-xs select-none"
+    >
+      <div className="max-w-7xl mx-auto space-y-12">
+        {/* 4-Column Publication Colophon Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b border-white/[0.06]">
+          {/* Column 1: Identity & Positioning */}
+          <div className="space-y-2">
+            <div className="font-sans font-semibold text-base text-[#F4F4F5] tracking-tight">
+              {profileData.name}
+            </div>
+            <div className="text-[#A1A1AA] text-xs">
+              {profileData.role}
+            </div>
+            <p className="font-serif italic text-xs text-[#71717A] pt-1">
+              &ldquo;{profileData.tagline}&rdquo;
+            </p>
+          </div>
+
+          {/* Column 2: Typography System */}
+          <div className="space-y-1.5 text-[11px]">
+            <span className="text-[#A1A1AA] uppercase tracking-wider block font-semibold text-[10px]">
+              Typography System
+            </span>
+            <div className="text-[#F4F4F5]">Newsreader (Display Serif)</div>
+            <div>Inter (Interface Sans)</div>
+            <div>JetBrains Mono (Code &amp; Data)</div>
+          </div>
+
+          {/* Column 3: Engineering Stack */}
+          <div className="space-y-1.5 text-[11px]">
+            <span className="text-[#A1A1AA] uppercase tracking-wider block font-semibold text-[10px]">
+              Technology &amp; Engine
+            </span>
+            <div className="text-[#F4F4F5]">Next.js 16 (App Router) + React 19</div>
+            <div>Tailwind CSS 4 + GSAP ScrollTrigger</div>
+            <div>Three.js + React Three Fiber</div>
+          </div>
+
+          {/* Column 4: Links & Code */}
+          <div className="space-y-1.5 text-[11px]">
+            <span className="text-[#A1A1AA] uppercase tracking-wider block font-semibold text-[10px]">
+              Links &amp; Code
+            </span>
+            <div>
+              <a
+                href={githubLink?.url || 'https://github.com/Mansi-2024'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#F4F4F5] transition-colors inline-flex items-center gap-1"
+              >
+                <span>github.com/Mansi-2024</span>
+                <ArrowUpRight className="w-3 h-3 text-[#71717A]" />
+              </a>
+            </div>
+            <div className="text-[#A1A1AA]">Open to opportunities</div>
+          </div>
+        </div>
+
+        {/* Bottom Colophon Row */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[11px]">
+          <div>
+            <span>© {currentYear} Mansi Konde. All rights reserved.</span>
+          </div>
+
+          <div className="flex items-center gap-4">
+            <nav aria-label="Footer Nav" className="flex items-center gap-4 text-[#A1A1AA]">
+              <a href="#hero" className="hover:text-[#F4F4F5] transition-colors">Hero</a>
+              <a href="#about" className="hover:text-[#F4F4F5] transition-colors">About</a>
+              <a href="#projects" className="hover:text-[#F4F4F5] transition-colors">Projects</a>
+              <a href="#skills" className="hover:text-[#F4F4F5] transition-colors">Skills</a>
+              <a href="#contact" className="hover:text-[#F4F4F5] transition-colors">Contact</a>
+            </nav>
+
+            <button
+              type="button"
+              onClick={handleScrollToTop}
+              className="inline-flex items-center gap-1.5 hover:text-[#F4F4F5] transition-colors pl-4 border-l border-white/10"
+              aria-label="Back to top"
+            >
+              <span>Top</span>
+              <ArrowUp className="w-3 h-3 text-[#38BDF8]" />
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+export default Footer;

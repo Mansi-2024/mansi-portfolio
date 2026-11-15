@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
+
+  --color-canvas-base: #0B0B0C;
+  --color-canvas-surface: #121214;
+  --color-canvas-elevated: #18181B;
+  --color-border-subtle: rgba(255, 255, 255, 0.07);
+  --color-border-hover: rgba(255, 255, 255, 0.16);
+  --color-text-primary: #F4F4F5;
+  --color-text-secondary: #A1A1AA;
+  --color-text-tertiary: #71717A;
+  --color-accent-pip: #38BDF8;
+  --color-status-live: #34D399;
+}
+
+@layer base {
+  :root {
+    --background: #0B0B0C;
+    --foreground: #F4F4F5;
+    --canvas-surface: #121214;
+    --canvas-elevated: #18181B;
+    --accent: #38BDF8;
+    --accent-emerald: #34D399;
+    --border-subtle: rgba(255, 255, 255, 0.07);
+    --border-default: rgba(255, 255, 255, 0.14);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background-color: #38BDF8;
+    color: #0B0B0C;
+  }
+
+  /* Accessible focus indicators */
+  :focus-visible {
+    outline: 2px solid #38BDF8;
+    outline-offset: 2px;
+  }
+}
+
+/* Lenis smooth scrolling helper styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
